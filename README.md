@@ -30,14 +30,14 @@ TBD
 | Top-level | Reference frequency (Design Input) | - | 10 | - | MHz | - |
 | Top-level | Output center frequency range | 2.4 | 2.45 | 2.48 | GHz | - |
 | Top-level | Output frequency range | 2.35 | - | 2.55 | GHz | - |
-| Top-level | Expected PLL lock time | 26 | - | 40 | µs | - |
+| Top-level | Expected PLL lock time | - | 25 | 40 | µs | - |
 | Loop/Control | Loop bandwidth | 80 | 150 | 300 | kHz | - |
 | Loop/Control | Phase margin | 50 | 55 | 60 | ° | - |
 | Dividers/Buffers | MMD division range | 240 | 245 | 248 | - | - |
 | Charge Pump | CP current range | 50 | 150 | 300 | µA | - |
 | VCO | Oscillation frequency | 2.35 | 2.45 | 2.55 | GHz | - |
 | VCO | Tuning range | 8 | 9 | 10 | % | - |
-| VCO | K VCO sensitivity | - | - | - | MHz/V | - |
+| VCO | K VCO sensitivity | 50| 80 | 150 | MHz/V | - |
 | VCO | Phase noise (@100 kHz offset) | - | -85 | - | dBc/Hz | - |
 | VCO | Phase noise (@1 MHz offset) | - | -100 | - | dBc/Hz | - |
 | Robustness/PVT | Process corners covered | - | TT/FF/SS/FS/SF | - | - | - |
