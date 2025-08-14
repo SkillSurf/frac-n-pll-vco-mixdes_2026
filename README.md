@@ -3,7 +3,7 @@
 ### 1. Team Members (Department of Electronic and Telecommunication Engineering, University of Moratuwa)
 
 - Rajinthan	Rameshkumar.
-- Anjana Viduranga Jasinthu
+- Anjana Viduranga.
 - Shenal Ranasinghe.
 - Sajitha Madugalle.
 - Lohan Atapattu.
