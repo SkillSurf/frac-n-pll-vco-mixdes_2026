@@ -23,23 +23,29 @@ TBD
 
 ### 4. Specifications of the Project:
 
-| Specification           | Min                 | Typ     | Max    | Unit   | Comments|
-|-------------------------|---------------------|---------|--------|--------|---------|
-| Supply voltage (Design Input)| 1.7 | 1.8 | 1.9 | V | - | 
-| External clock frequency (Design Input)| - | 1 | - | MHz | - | 
-| Resolution | - | 8 | - | bits | - | 
-| Operational Temperature | 10 | 36 | 45 | C | - | 
-| Reference voltage (Design Input)| - | 0.8 | - | V | - | 
-| Temperature (Design Input) | 20 | - | 50 | C | - | 
-| ENOB | 7.5 | - | - | bits | - | 
-| INL | -0.5 | - |  0.5 | LSBs | - | 
-| DNL | -0.5 | - | 0.5 | LSBs | - | 
-| SFDR | 55 | - | - | dB | - | 
-| Sampling rate | 100 | - |  - | ksps | - | 
-| Current consumption during conversion | - |  - | 20 | uA | - | 
-| Power down current consumption | - | - | 100 | pA | - | 
-| Die area | - | - | 0.25 | mm² | 500 um x 500 um | 
-| FoM | - | - | 200 | fJ/conversion-step | Walden figure-of-merit (FoM) | 
+| Category | Specification | Min | Typ | Max | Unit | Comments |
+|----------|---------------|-----|-----|-----|------|----------|
+| Top-level | Supply voltage (Design Input) | 1.7 | 1.8 | 1.9 | V | - |
+| Top-level | Temperature (Design Input) | 20 | - | 50 | C | - |
+| Top-level | Reference frequency (Design Input) | - | 10 | - | MHz | - |
+| Top-level | Output center frequency range | 2.4 | 2.45 | 2.48 | GHz | - |
+| Top-level | Output frequency range | 2.35 | - | 2.55 | GHz | - |
+| Top-level | Expected PLL lock time | 26 | - | 40 | µs | - |
+| Loop/Control | Loop bandwidth | 80 | 150 | 300 | kHz | - |
+| Loop/Control | Phase margin | 50 | 55 | 60 | ° | - |
+| Dividers/Buffers | MMD division range | 240 | 245 | 248 | - | - |
+| Charge Pump | CP current range | 50 | 150 | 300 | µA | - |
+| VCO | Oscillation frequency | 2.35 | 2.45 | 2.55 | GHz | - |
+| VCO | Tuning range | 8 | 9 | 10 | % | - |
+| VCO | K VCO sensitivity | - | - | - | MHz/V | - |
+| VCO | Phase noise (@100 kHz offset) | - | -85 | - | dBc/Hz | - |
+| VCO | Phase noise (@1 MHz offset) | - | -100 | - | dBc/Hz | - |
+| Robustness/PVT | Process corners covered | - | TT/FF/SS/FS/SF | - | - | - |
+| Robustness/PVT | Monte Carlo yield on key specs | 99 | - | - | % | - |
+| Power/Area | Total DC power consumption | - | 12 | 25 | mW | - |
+| Power/Area | Power down current consumption | - | 0.5 | 5 | µA | - |
+| Power/Area | Die area | - | 0.22 | 0.25 | mm² | 500 µm x 500 µm |
+
 
 ### 5. Circuit Design:
 
