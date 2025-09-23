@@ -1,6 +1,59 @@
 ## A 2.4GHz Type-II ∆Σ Fractional-N Phase Locked Loop (PLL) with a Type IV Cross-Coupled Differential LC Voltage-Controlled Oscillator (VCO) for Wifi/Bluetooth Applications - [Universalization of IC Design from CASS](https://github.com/unic-cass)
 
-### 1. Team Members (Department of Electronic and Telecommunication Engineering, University of Moratuwa)
+ *This design is currently under progress.
+
+----------------------
+<a name="toc"></a>
+## Table of Contents
+
+1. [Introduction](docs/intro.md)
+    - [Project Overview](#overview)
+    - [Project Specifications](#specs)
+    - [Project Application](#application)
+2. [Behavioral Model](model/model.md)
+    - [Design Calculations](model/calculations/calc.md)
+    - [Python Model](model/model.md)
+3. [RF Simulation Workflow](openems/openems.md)
+    - [OpenEMS Simulation workflow](openems/openems.md)
+    - [Inductor Design Simulations](openems/ind_sims.md)
+        - [IHP SG13G2 PDK](openems/SG13G2/ind_sg13g2.md)
+        - [SKY130 PDK](openems/SKY130/ind_sky130.md)
+    - [Inductor Layout](openems/layout/ind_lay.md)
+4. [PLL IP Blocks](schematic/design.md)
+    - [Phase-Frequency Detector (PFD)](schematic/blocks/pfd.md)
+    - [Charge Pump (CP)](schematic/blocks/cp.md)
+    - [Loop Filter](schematic/blocks/lf.md)
+    - [Bias Generator](schematic/blocks/bia.md)
+    - [Band gap Reference](schematic/blocks/bgr.md)
+    - [LC Voltage-Controlled Oscillator (LC-VCO)](schematic/blocks/vco.md)
+    - [Delta-Sigma Modulator (DSM)](schematic/blocks/dsm.md)
+    - [Frequency Divider (FD)](schematic/blocks/fd.md)
+    - [TOP: Phase-Locked Loop (PLL)](schematic/blocks/pll.md)
+5. [Integrated PLL Design and TestBench](simulation/full_pll_design.md)
+    - [Output Waveform of the LC-VCO](simulation/full_pll_design.md)
+    - [Operation of the Charge Pump](simulation/full_pll_design.md)
+    - [Operation of the DSM and FD](simulation/full_pll_design.md)
+    - [Integrated PLL Simulation for N = 240](simulation/full_pll_design.md)
+6. [PLL Layout Design](layout/layout_design.md)
+    - [Phase-Frequency Detector Layout](layout/layout_design.md)
+    - [Charge Pump Layout](layout/layout_design.md)
+    - [Loop Filter Layout](layout/layout_design.md)
+    - [Bias Generator Layout](layout/layout_design.md)
+    - [Band gap Reference Layout](layout/layout_design.md)
+    - [LC-VCO Layout](layout/layout_design.md)
+    - [Delta-Sigma Modulator (DSM)](layout/layout_design.md)
+    - [Frequency Divider Layout](layout/layout_design.md)
+    - [TOP: Integrated PLL Layout](layout/layout_design.md)
+7. [Important Information for TTSKY25b](docs/layout_info.md)
+8. [Physical Verification (DRC, LVS)](post-layout/pv.md)
+9. [Parasitic Extractions (RC) with Kpex](post-layout/kpex.md)
+10. [Post-layout Simulations after PEX](post-layout/pex.md)
+    - [Integrated PLL Simulation for N = 240](post-layout/pex.md)   
+11. [TinyTapeout SKY25b Submission](docs/ttsky25b_mpw.md)
+12. [Testing Plan with AD3](test/plan.md)
+13. [References](#ref)
+
+### Team Members (Department of Electronic and Telecommunication Engineering, University of Moratuwa)
 
 - Rajinthan	Rameshkumar.
 - Anjana Viduranga.
@@ -13,15 +66,20 @@
 - Kithmin Wickremasinghe (MASc).
 - Dr. Chamira Edussooriya (PhD).
 
-### 2. Overview of the Project:
+<a name="overview"></a>
+### Overview of the Project:
 
 The PLL is a charge-pump (CP) based (Type-II) PLL which uses a standard fractional-N architecture, where an output frequency divider (FD) is used to set the frequency multiplication with respect to the reference clock input; a 10 MHz crystal oscillator. In order to make the frequency of the VCO output signal equivalent to the frequency of a PFD reference input, the frequency divider (FD) divides the frequency by a fractional value using the delta sigma modulation (DSM) technique. The output frequency `f_out` is `N * f_ref`, where `N` is the division ratio of `XDIV_OUT` and `f_ref` is the input clock frequency. Documentation for the PLL subcells is included below.
 
-### 3. Block Diagram of the Project:
+### Block Diagram of the Project:
 
-TBD
+<p align="center">
+    <img src="./img/block.png" width = "800" height = "280"><br>
+    <em>Figure 1: Block Diagram of the PLL Design</em>
+</p>
 
-### 4. Specifications of the Project:
+<a name="specs"></a>
+### Specifications of the Project:
 
 | Category | Specification | Min | Typ | Max | Unit | Comments |
 |----------|---------------|-----|-----|-----|------|----------|
@@ -46,17 +104,16 @@ TBD
 | Power/Area | Power down current consumption | - | 0.5 | 5 | µA | - |
 | Power/Area | Die area | - | 0.22 | 0.25 | mm² | 500 µm x 500 µm |
 
+[Return to top](#toc)
 
-### 5. Circuit Design:
+<a name="application"></a>
+### Application of the Project:
 
-#### 5.1 PLL:
+<a name="refs"></a>
+### References:
 
-#### 5.2 Phase-frequency detector (PFD):
+The following open-source PLL designs were referred to during the development of this project:
+- tt08-tiny-pll - [https://github.com/LegumeEmittingDiode/tt08-tiny-pll](https://github.com/LegumeEmittingDiode/tt08-tiny-pll)
+- Razavi papers
 
-#### 5.3 Charge pump (CP):
-
-#### 5.4 Loop filter:
-
-#### 5.5 Voltage-controlled oscillator (VCO):
-
-#### 5.6 Frequency divider (FD):
+[Return to top](#toc)
