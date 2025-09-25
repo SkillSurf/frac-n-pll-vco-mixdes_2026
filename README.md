@@ -1,4 +1,4 @@
-## A 2.4GHz Type-II ∆Σ Fractional-N Phase Locked Loop (PLL) with a Type IV Cross-Coupled Differential LC Voltage-Controlled Oscillator (VCO) for Wifi/Bluetooth Applications - [Universalization of IC Design from CASS](https://github.com/unic-cass)
+## A 2.4GHz Type-II ∆Σ Fractional-N Phase Locked Loop (PLL) with a Type IV Cross-Coupled Differential LC Voltage-Controlled Oscillator (VCO) for Wi-Fi/Bluetooth Applications - [Universalization of IC Design from CASS](https://github.com/unic-cass)
 
  *This design is currently under progress.
 
