@@ -174,7 +174,7 @@ C {iopin.sym} 810 550 3 0 {name=p7 lab=Ibias
 }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 950 470 0 1 {name=M2
 L=0.15
-W=10
+W=15
 nf=1
 mult=18
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -188,7 +188,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8_lvt.sym} 1200 470 0 0 {name=M3
 L=0.15
-W=10
+W=15
 nf=1
 mult=18
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -246,7 +246,7 @@ value=0.65k
 footprint=1206
 device=resistor
 m=1}
-C {sky130_fd_pr/cap_mim_m3_2.sym} 1070 140 1 0 {name=C2 model=cap_mim_m3_2 W=4.5 L=4.5 MF=25 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 1070 140 1 0 {name=C2 model=cap_mim_m3_2 W=5 L=5 MF=22 spiceprefix=X}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 1200 0 0 0 {name=M4
 L=0.74
 W=6
@@ -289,7 +289,7 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_2.sym} 730 460 0 0 {name=C6 model=cap_mim_m3_2 W=1 L=1 MF=170 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 730 460 0 0 {name=C6 model=cap_mim_m3_2 W=1 L=1 MF=10 spiceprefix=X}
 C {devices/gnd.sym} 730 490 0 0 {name=l1 lab=GND}
 C {devices/vdd.sym} 590 500 0 0 {name=l19 lab=VDD}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 1540 530 3 0 {name=M7
@@ -306,6 +306,6 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_2.sym} 1390 470 0 0 {name=C1 model=cap_mim_m3_2 W=1 L=1 MF=170 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 1390 470 0 0 {name=C1 model=cap_mim_m3_2 W=1 L=1 MF=10 spiceprefix=X}
 C {devices/gnd.sym} 1390 500 0 0 {name=l10 lab=GND}
 C {devices/vdd.sym} 1540 500 0 0 {name=l20 lab=VDD}
