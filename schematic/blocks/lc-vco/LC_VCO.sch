@@ -114,47 +114,38 @@ N 2010 0 2010 40 {
 lab=VDD}
 N 2010 0 2020 0 {
 lab=VDD}
-N 2020 110 2020 260 {
+N 2020 270 2020 430 {
 lab=OUTn}
-N 2080 330 2130 330 {
-lab=OUTn}
-N 2080 180 2130 180 {
-lab=OUTn}
-N 2190 180 2250 180 {
-lab=OUTp}
-N 2190 330 2250 330 {
-lab=OUTp}
-N 2080 260 2090 260 {
-lab=OUTn}
-N 2020 260 2080 260 {
-lab=OUTn}
-N 2250 260 2310 260 {
-lab=OUTp}
 N 2310 -10 2310 0 {
 lab=VDD}
 N 2020 -10 2020 0 {
 lab=VDD}
-N 2250 180 2250 260 {
-lab=OUTp}
-N 2080 180 2080 260 {
-lab=OUTn}
-N 2310 110 2310 260 {
-lab=OUTp}
-N 2020 260 2020 430 {
-lab=OUTn}
-N 2080 260 2080 330 {
-lab=OUTn}
-N 2250 260 2250 330 {
-lab=OUTp}
-N 2310 260 2310 430 {
+N 2310 270 2310 430 {
 lab=OUTp}
 N 1680 430 2020 430 {
 lab=OUTn}
 N 2310 430 2630 430 {
 lab=OUTp}
-N 2150 260 2170 260 {lab=#net2}
-N 2230 260 2250 260 {lab=OUTp}
 N 2660 460 2660 540 {lab=OUTp}
+N 2190 370 2270 370 {
+lab=OUTp}
+N 2160 270 2180 270 {lab=#net2}
+N 2270 270 2310 270 {lab=OUTp}
+N 2060 270 2070 270 {lab=OUTn}
+N 2270 270 2270 370 {lab=OUTp}
+N 2240 270 2270 270 {lab=OUTp}
+N 2270 170 2270 270 {lab=OUTp}
+N 2190 170 2270 170 {
+lab=OUTp}
+N 2060 170 2130 170 {lab=OUTn}
+N 2060 170 2060 270 {lab=OUTn}
+N 2020 270 2060 270 {lab=OUTn}
+N 2060 270 2060 370 {lab=OUTn}
+N 2060 370 2130 370 {lab=OUTn}
+N 2310 110 2310 270 {
+lab=OUTp}
+N 2020 110 2020 270 {
+lab=OUTn}
 C {iopin.sym} 1550 -10 2 0 {name=p4 lab=VDD
 }
 C {devices/lab_pin.sym} 1990 500 0 0 {name=l4 sig_type=std_logic lab=GND}
@@ -174,11 +165,6 @@ C {iopin.sym} 1680 790 2 0 {name=p14 lab=VCTRL
 C {iopin.sym} 1900 580 3 0 {name=p15 lab=Ibias
 }
 C {devices/vdd.sym} 2170 -10 0 0 {name=l7 lab=VDD}
-C {devices/ind.sym} 2120 260 1 0 {name=L2
-m=1
-value=4n
-footprint=1206
-device=inductor}
 C {sg13g2_pr/sg13_lv_nmos.sym} 2150 670 0 0 {name=M6
 l=0.15u
 w=1u
@@ -226,35 +212,36 @@ m=12
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {devices/res.sym} 2160 330 1 0 {name=R6
+C {sg13g2_pr/cap_cmim.sym} 2160 170 1 0 {name=C3
+model=cap_cmim
+w=4.0e-6
+l=4.0e-6
+m=10
+spiceprefix=X}
+C {devices/res.sym} 2160 370 1 0 {name=R6
 value=1.25k
 footprint=1206
 device=resistor
 m=1}
-C {devices/res.sym} 2200 260 1 0 {name=R1
+C {devices/res.sym} 2210 270 1 0 {name=R1
 value=4
 footprint=1206
 device=resistor
 m=1}
-C {sg13g2_pr/cap_cmim.sym} 2160 180 1 0 {name=C3
-model=cap_cmim
-w=4.0e-6
-l=4.0e-6
-m=14.8
-spiceprefix=X}
-C {sg13g2_pr/sg13_lv_pmos.sym} 2630 560 3 0 {name=Mv4
-l=4u
-w=4u
+C {ihp_4nh_inductor.sym} 2110 280 0 0 {name=x1}
+C {sg13g2_pr/sg13_lv_pmos.sym} 2630 560 3 0 {name=Mv2
+l=8u
+w=8u
 ng=1
-m=20
+m=35
 model=sg13_lv_pmos
 spiceprefix=X
 }
 C {sg13g2_pr/sg13_lv_pmos.sym} 1680 560 3 0 {name=Mv1
-l=4u
-w=4u
+l=8u
+w=8u
 ng=1
-m=20
+m=35
 model=sg13_lv_pmos
 spiceprefix=X
 }

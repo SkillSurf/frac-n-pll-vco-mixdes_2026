@@ -74,7 +74,7 @@ value=".lib cornerMOSlv.lib mos_tt
 "}
 C {devices/code_shown.sym} 210 -110 0 0 {name=NGSPICE1 only_toplevel=true 
 value="
-.include /foss/designs/IHP_4nH_Inductor.spice
+.include ./IHP_4nH_Inductor.spice
 .param temp=27
 .control
 save all

@@ -1,0 +1,25 @@
+** sch_path: /foss/designs/iic-osic-tools/Analog_designs/LC-VCO-3Ghz/Design/design_data/xschem/LC_VCO.sch
+**.subckt LC_VCO VDD OUTp OUTn Ibias VCTRL GND
+*.iopin VDD
+*.opin OUTp
+*.opin OUTn
+*.iopin GND
+*.iopin VCTRL
+*.iopin Ibias
+XM9 net1 Ibias GND GND sg13_lv_nmos w=1u l=0.15u ng=1 m=60
+XM10 Ibias Ibias GND GND sg13_lv_nmos w=1u l=0.15u ng=1 m=1
+XM13 OUTp OUTn net1 GND sg13_lv_nmos w=8u l=0.5u ng=1 m=3
+XM14 OUTn OUTp net1 GND sg13_lv_nmos w=8u l=0.5u ng=1 m=3
+XM15 OUTn VCTRL OUTn VDD sg13_lv_pmos w=3u l=3u ng=1 m=10
+XM16 net2 VCTRL OUTp VDD sg13_lv_pmos w=3u l=3u ng=1 m=10
+XM1 OUTn VCTRL OUTn GND sg13_lv_nmos w=3u l=3u ng=1 m=10
+XM2 OUTp VCTRL OUTp GND sg13_lv_nmos w=3u l=3u ng=1 m=10
+L2 OUTp OUTn 4n m=1
+R6 OUTp OUTn 1.1k m=1
+XC3 OUTp OUTn cap_cmim w=4.0e-6 l=4.0e-6 m=20
+XM4 OUTp OUTn VDD VDD sg13_lv_pmos w=7u l=0.35u ng=1 m=3
+XM3 OUTn OUTp VDD VDD sg13_lv_pmos w=7u l=0.35u ng=1 m=3
+**.ends
+.GLOBAL VDD
+.GLOBAL GND
+.end
