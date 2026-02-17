@@ -72,20 +72,23 @@ format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat
 "}
-C {devices/code_shown.sym} 260 -90 0 0 {name=NGSPICE1 only_toplevel=true 
+C {devices/code_shown.sym} 210 -110 0 0 {name=NGSPICE1 only_toplevel=true 
 value="
+.include /foss/designs/IHP_4nH_Inductor.spice
 .param temp=27
 .control
 save all
+.ic v(OUTp)=0.6
+
 .options maxstep=10n reltol=1e-3 abstol=1e-6
 save v(vout)
-tran 0.01n 0.5u
+tran 0.01n 0.5u UIC
 
 * Save transient waveform to raw file
 write LC_VCO_tb.raw
 
 * Plot time-domain waveform
-plot v(OUTp) xlimit 0.0n 60n
+plot v(OUTp) xlimit 5n 60n
 
 * Perform FFT on output
 fft v(OUTp)
