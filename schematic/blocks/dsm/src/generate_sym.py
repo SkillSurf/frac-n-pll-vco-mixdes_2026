@@ -78,29 +78,115 @@ Version_text = """v {xschem version=3.4.5 file_version=1.2
                   
 
 
+# def generate_xschem_symbol(verilog_file, output_sym):
+#     """Generate an Xschem symbol (.sym) for the given Verilog module with expanded bus signals."""
+#     module_name, inputs, outputs = parse_verilog(verilog_file)
+
+#     # Sort inputs and outputs to ensure bus signals are in descending order
+#     def sort_bus_signals(signals):
+#         """Sort bus signals in descending order for proper formatting."""
+#         numeric_signals = [s for s in signals if re.search(r'\d+', s)]
+#         non_numeric_signals = [s for s in signals if not re.search(r'\d+', s)]
+
+#         # Sort numeric signals by base name and descending index
+#         numeric_signals.sort(key=lambda x: (
+#             re.sub(r'\d+', '', x),  # Base name
+#             -int(re.search(r'\d+', x).group())  # Descending numeric index
+#         ))
+
+#         # Combine non-numeric signals first, followed by sorted numeric signals
+#         return non_numeric_signals + numeric_signals
+
+#     inputs = sort_bus_signals(inputs)
+#     outputs = sort_bus_signals(outputs)
+
+#     # Generate the format string dynamically
+#     format_inputs = " ".join(f"@@{p}" for p in inputs)
+#     format_outputs = " ".join(f"@@{p}" for p in outputs)
+
+#     symbol = [
+#         Version_text,
+#         "G {}",
+#         "K {type=delay",
+#         "verilog_ignore=true",
+#         "vhdl_ignore=true",
+#         f'format="@name [ {format_inputs} ] [ {format_outputs} ] null @dut',
+#         '.model @dut @d_cosim_model simulation=@model"',
+#         "template=\"name=adut",
+#         "dut=dut",
+#         "d_cosim_model= d_cosim",
+#         f"model=./../{os.path.basename(verilog_file)[:-2]}.so\" }}",
+#         "V {}", "S {}", "E {}"
+#     ]
+
+#     pin_distance, width, offset_factor = 20, 100, 30
+#     total_pins = len(inputs) + len(outputs)
+#     height_input_side = len(inputs) * pin_distance
+#     height_output_side = len(outputs) * pin_distance
+#     total_height = max(height_input_side, height_output_side)
+#     start_y_input = -height_input_side // 2 + pin_distance // 2
+#     start_y_output = -height_output_side // 2 + pin_distance // 2
+
+#     # Define the structure of lines and boxes as per original .sym. Starting by creating the L lines
+#     for i, pin_name in enumerate(inputs):
+#         y = start_y_input + pin_distance * i
+#         symbol.append(f"L 4 -{width//2 + 2.5 + offset_factor} {y} -{width//2 - 2.5 + offset_factor} {y} {{}}")
+
+#     for i, pin_name in enumerate(outputs):
+#         y = start_y_output + pin_distance * i
+#         symbol.append(f"L 4 {width//2 + 2.5 + offset_factor} {y} {width//2 - 2.5 + offset_factor} {y} {{}}")
+    
+#     for i, pin_name in enumerate(inputs):
+#         y = start_y_input + pin_distance * i
+#         symbol.append(f"B 5 -{width//2 + 2.5 + offset_factor} {y-2.5} -{width//2 - 2.5 + offset_factor} {y+2.5} {{name={pin_name} dir=in verilog_type=wire propag=0}}")
+
+#     for i, pin_name in enumerate(outputs):
+#         y = start_y_output + pin_distance * i
+#         symbol.append(f"B 5 {width//2 - 2.5 + offset_factor} {y-2.5} {width//2 + 2.5 + offset_factor} {y+2.5} {{name={pin_name} dir=out verilog_type=wire propag=1}}")
+
+#     # Module name at the top of the symbol
+#     symbol.append(f'T {{@name}} 0 {total_height//2 + 5} 0 0 0.12 0.12 {{}}')
+
+#     # Module name at the bottom of the symbol
+#     symbol.append(f'T {{@d_cosim_model}} 0 {-total_height//2 + 5} 0 0 0.12 0.12 {{}}')
+
+#     # Printing pin names on the symbol with proper orientation
+#     for i, pin_name in enumerate(inputs):
+#         y = start_y_input + pin_distance * i
+#         symbol.append(f"T {{{pin_name}}} -90 {y-2.5} 0 1 0.12 0.12 {{}}")  # Negative for input side
+
+#     for i, pin_name in enumerate(outputs):
+#         y = start_y_output + pin_distance * i
+#         symbol.append(f"T {{{pin_name}}} 90 {y-2.5} 0 0 0.12 0.12 {{}}")  # Positive for output side
+
+#     # Lines that form the box around the symbol
+#     symbol.append(f'L 4 {width//2} -{total_height//2} {width//2} {total_height//2} {{}}')
+#     symbol.append(f'L 4 -{width//2} -{total_height//2} -{width//2} {total_height//2} {{}}')
+#     symbol.append(f'L 4 -{width//2} {total_height//2} {width//2} {total_height//2} {{}}')
+#     symbol.append(f'L 4 -{width//2} -{total_height//2} {width//2} -{total_height//2} {{}}')
+
+#     with open(output_sym, "w") as f:
+#         f.write("\n".join(symbol))
+#     print(f"Xschem symbol written to {output_sym}")
+
+
+
 def generate_xschem_symbol(verilog_file, output_sym):
-    """Generate an Xschem symbol (.sym) for the given Verilog module with expanded bus signals."""
+    """Generate an Xschem symbol (.sym) with a 'DSM' box centered inside."""
     module_name, inputs, outputs = parse_verilog(verilog_file)
 
-    # Sort inputs and outputs to ensure bus signals are in descending order
     def sort_bus_signals(signals):
-        """Sort bus signals in descending order for proper formatting."""
         numeric_signals = [s for s in signals if re.search(r'\d+', s)]
         non_numeric_signals = [s for s in signals if not re.search(r'\d+', s)]
-
-        # Sort numeric signals by base name and descending index
         numeric_signals.sort(key=lambda x: (
-            re.sub(r'\d+', '', x),  # Base name
-            -int(re.search(r'\d+', x).group())  # Descending numeric index
+            re.sub(r'\d+', '', x),
+            -int(re.search(r'\d+', x).group())
         ))
-
-        # Combine non-numeric signals first, followed by sorted numeric signals
         return non_numeric_signals + numeric_signals
 
     inputs = sort_bus_signals(inputs)
     outputs = sort_bus_signals(outputs)
 
-    # Generate the format string dynamically
     format_inputs = " ".join(f"@@{p}" for p in inputs)
     format_outputs = " ".join(f"@@{p}" for p in outputs)
 
@@ -115,60 +201,72 @@ def generate_xschem_symbol(verilog_file, output_sym):
         "template=\"name=adut",
         "dut=dut",
         "d_cosim_model= d_cosim",
-        f"model=./{os.path.basename(verilog_file)[:-2]}.so\" }}",
+        f"model=./../{os.path.basename(verilog_file)[:-2]}.so\" }}",
         "V {}", "S {}", "E {}"
     ]
 
     pin_distance, width, offset_factor = 20, 100, 30
-    total_pins = len(inputs) + len(outputs)
     height_input_side = len(inputs) * pin_distance
     height_output_side = len(outputs) * pin_distance
-    total_height = max(height_input_side, height_output_side)
+    # Add extra padding so the centered box doesn't crowd the pins
+    total_height = max(height_input_side, height_output_side) + 40
+    
     start_y_input = -height_input_side // 2 + pin_distance // 2
     start_y_output = -height_output_side // 2 + pin_distance // 2
 
-    # Define the structure of lines and boxes as per original .sym. Starting by creating the L lines
+    # --- Draw Pins ---
     for i, pin_name in enumerate(inputs):
         y = start_y_input + pin_distance * i
         symbol.append(f"L 4 -{width//2 + 2.5 + offset_factor} {y} -{width//2 - 2.5 + offset_factor} {y} {{}}")
+        symbol.append(f"B 5 -{width//2 + 2.5 + offset_factor} {y-2.5} -{width//2 - 2.5 + offset_factor} {y+2.5} {{name={pin_name} dir=in verilog_type=wire propag=0}}")
+        symbol.append(f"T {{{pin_name}}} -{width//2 + 2.5 + offset_factor - 1} {y+5} 0 1 0.12 0.12 {{}}")
 
     for i, pin_name in enumerate(outputs):
         y = start_y_output + pin_distance * i
         symbol.append(f"L 4 {width//2 + 2.5 + offset_factor} {y} {width//2 - 2.5 + offset_factor} {y} {{}}")
-    
-    for i, pin_name in enumerate(inputs):
-        y = start_y_input + pin_distance * i
-        symbol.append(f"B 5 -{width//2 + 2.5 + offset_factor} {y-2.5} -{width//2 - 2.5 + offset_factor} {y+2.5} {{name={pin_name} dir=in verilog_type=wire propag=0}}")
-
-    for i, pin_name in enumerate(outputs):
-        y = start_y_output + pin_distance * i
         symbol.append(f"B 5 {width//2 - 2.5 + offset_factor} {y-2.5} {width//2 + 2.5 + offset_factor} {y+2.5} {{name={pin_name} dir=out verilog_type=wire propag=1}}")
+        symbol.append(f"T {{{pin_name}}} {width//2 + 2.5 + offset_factor - 5} {y+5} 0 0 0.12 0.12 {{}}")
 
-    # Module name at the top of the symbol
-    symbol.append(f'T {{@name}} 0 {total_height//2 + 5} 0 0 0.12 0.12 {{}}')
-
-    # Module name at the bottom of the symbol
-    symbol.append(f'T {{@d_cosim_model}} 0 {-total_height//2 + 5} 0 0 0.12 0.12 {{}}')
-
-    # Printing pin names on the symbol with proper orientation
-    for i, pin_name in enumerate(inputs):
-        y = start_y_input + pin_distance * i
-        symbol.append(f"T {{{pin_name}}} -90 {y-2.5} 0 1 0.12 0.12 {{}}")  # Negative for input side
-
-    for i, pin_name in enumerate(outputs):
-        y = start_y_output + pin_distance * i
-        symbol.append(f"T {{{pin_name}}} 90 {y-2.5} 0 0 0.12 0.12 {{}}")  # Positive for output side
-
-    # Lines that form the box around the symbol
+    # --- Draw Main Outer Box ---
     symbol.append(f'L 4 {width//2} -{total_height//2} {width//2} {total_height//2} {{}}')
     symbol.append(f'L 4 -{width//2} -{total_height//2} -{width//2} {total_height//2} {{}}')
     symbol.append(f'L 4 -{width//2} {total_height//2} {width//2} {total_height//2} {{}}')
     symbol.append(f'L 4 -{width//2} -{total_height//2} {width//2} -{total_height//2} {{}}')
 
+    # --- Centered DSM Box ---
+    d_w, d_h = 40, 20 
+    bx1, by1 = -d_w/2, -d_h/2  # Bottom-Left: (-20, -10)
+    bx2, by2 = d_w/2, d_h/2    # Top-Right:   (20, 10)
+
+    # Draw the box
+    symbol.append(f'L 4 {bx1} {by1} {bx2} {by1} {{}}') # Bottom
+    symbol.append(f'L 4 {bx1} {by2} {bx2} {by2} {{}}') # Top
+    symbol.append(f'L 4 {bx1} {by1} {bx1} {by2} {{}}') # Left
+    symbol.append(f'L 4 {bx2} {by1} {bx2} {by2} {{}}') # Right
+    
+    # --- TEXT PLACEMENT OPTIONS ---
+    
+    # Option A: Middle of the Left Edge (Recommended)
+    # x = bx1 + 2 (slight padding), y = 0 (vertical center)
+    # Justification: 0 (Left) 2 (Center Vertical)
+    # symbol.append(f'T {{DSM}} {bx1 + 2} 0 0 0 0.25 0.25 {{layer=13}}')
+
+    # OR Option B: Bottom Left Corner
+    # x = bx1 + 2, y = by1 + 2
+    # Justification: 0 (Left) 0 (Bottom)
+    symbol.append(f'T {{DSM}} {bx1 + 2} {by1 + 2} 0 0 0.25 0.25 {{layer=13}}')
+
+    # --- Labels (Offset from the box edges) ---
+    symbol.append(f'T {{@name}} 0 {total_height//2 + 10} 0 0 0.15 0.15 {{}}')
+    symbol.append(f'T {{@d_cosim_model}} 0 {-total_height//2 - 15} 0 0 0.1 0.1 {{}}')
+
     with open(output_sym, "w") as f:
         f.write("\n".join(symbol))
     print(f"Xschem symbol written to {output_sym}")
 
+
+
+    
 def main():
     """Main function to process Verilog and generate the symbol."""
     if len(sys.argv) != 3:

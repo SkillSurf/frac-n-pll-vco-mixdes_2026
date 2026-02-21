@@ -29,19 +29,19 @@ def write_serial_word(f, word):
     f.write("s 10000\n\n")  # delay after word
 
 def main():
-    with open("stimuli_test.cir", "w") as f:
+    with open("../xschem/simulation/stimuli_test.txt", "w") as f:
         # Header
         f.write("unit n\n")
         f.write("voltage 1.8\n")
         f.write("slope 5\n")
         f.write("format hspice_simple\n\n")
-        f.write("signal sdata\nsignal sclk\nsignal rstn\nsignal en\n\n")
+        f.write("signal sdata\nsignal sclk\nsignal rst\nsignal en\n\n")
         f.write("beginfile stimuli_test.cir\n\n")
 
         # Initialization and reset
         f.write("* --- Initialization ---\n")
-        f.write("set rstn 0\nset en 0\nset sclk 0\nset sdata 0\ns 50\n")
-        f.write("set rstn 1\ns 20\n\n")
+        f.write("set rst 1\nset en 0\nset sclk 0\nset sdata 0\ns 50\n")
+        f.write("set rst 0\ns 20\n\n")
 
         # Sweep from -128 to +127 step 16
         for word in range(-128, 128, 16):
@@ -50,7 +50,7 @@ def main():
         # End
         f.write("endfile\n")
 
-    print("✅ Stimulus file 'stimuli_test.cir' generated successfully with 100 MHz SCLK.")
+    print("✅ Stimulus file 'stimuli_test.txt' generated successfully with 100 MHz SCLK.")
 
 if __name__ == "__main__":
     main()

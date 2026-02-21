@@ -8,7 +8,7 @@ module dsm_top_tb;
 
     // Testbench signals
     reg clk_dsm;       // DSM clock
-    reg rst_n;         // Active-low reset
+    reg rst;         // Active-high reset
     reg sclk;          // Serial clock
     reg sdata;         // Serial data input
     reg en;            // Shift enable
@@ -17,12 +17,11 @@ module dsm_top_tb;
     // Instantiate the DUT
     dsm_top uut (
         .clk_dsm(clk_dsm),
-        .rst_n(rst_n),
+        .rst(rst),
         .sclk(sclk),
         .sdata(sdata),
         .en(en),
-        .dout(dout),
-        .data_word()
+        .dout(dout)
     );
 
     //-----------------------------------------------------------------
@@ -44,7 +43,7 @@ module dsm_top_tb;
 
     initial begin
         // Initialize
-        rst_n = 0;
+        rst = 1;
         en = 0;
         sdata = 0;
         sclk = 0;
@@ -53,8 +52,8 @@ module dsm_top_tb;
         $dumpfile("dsm_top_tb.vcd");
         $dumpvars(0, dsm_top_tb);
 
-        // Apply reset
-        #50 rst_n = 1;
+        // Deassert reset
+        #50 rst = 0;
 
         total_cycles = 2000;
 

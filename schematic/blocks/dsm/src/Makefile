@@ -7,7 +7,7 @@ OUTPUT = dsm_top.out
 MIXED = dsm_top.so
 MIXED_OBJ = dsm_top_obj_dir
 VCD_FILE = dsm_top_tb.vcd
-SRC_FILES = dsm_top.v dsm_top_tb.v dsm_8bit.v shift_reg_serial.v
+SRC_FILES = dsm_top.v dsm_top_tb.v dsm_9bit.v shift_reg_serial.v
 NGSPICE_FILE = dsm_top.v
 DEST_DIR = ../xschem/
 # Default target
