@@ -1,4 +1,4 @@
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/inductor/tb-ind.sch
+** sch_path: /foss/designs/iic_osic_tools/Analog_designs/LC_VCO_3Ghz/Design/design_data/xschem/inductor/tb-ind.sch
 **.subckt tb-ind
 V1 p1 GND DC 0 AC 1
 x1 p1 GND ihp_4nh_inductor

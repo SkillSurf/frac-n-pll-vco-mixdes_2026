@@ -1,4 +1,4 @@
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/inductor/tb-tran.sch
+** sch_path: /foss/designs/iic_osic_tools/Analog_designs/LC_VCO_3Ghz/Design/design_data/xschem/inductor/tb-tran.sch
 **.subckt tb-tran
 V1 net1 GND sin(0 1.8 2.5G)
 V2 v1 net1 0
