@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-8.6311335e-08
-x2=1.3687664e-08
+x1=1e-12
+x2=1e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-8.6311335e-08
-x2=1.3687664e-08
+x1=1e-12
+x2=1e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -58,8 +58,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-8.6311335e-08
-x2=1.3687664e-08
+x1=1e-12
+x2=1e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -90,9 +90,9 @@ C {lab_pin.sym} 390 -520 0 1 {name=p13 lab=DN}
 C {lab_pin.sym} 240 -480 0 0 {name=p14 lab=GND}
 C {launcher.sym} 230 -370 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_PFD_std.raw tran"
+tclcommand="xschem raw_read $netlist_dir/PFD_tb.raw tran"
 }
-C {simulator_commands_shown.sym} 460 -580 0 0 {name=SimulatorNGSPICE
+C {simulator_commands_shown.sym} 450 -610 0 0 {name=SimulatorNGSPICE
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -111,7 +111,7 @@ let i = 0
 dowhile i < 10
   reset
   run
-  write tb_PFD_std.raw
+  write PFD_tb.raw
   set appendwrite
   reset
   let i = i + 1
@@ -119,7 +119,7 @@ end
 quit
 .endc
 "}
-C {simulator_commands_shown.sym} -290 -290 0 0 {
+C {simulator_commands_shown.sym} -80 -280 0 0 {
 name=Libs_Ngspice
 simulator=ngspice
 only_toplevel=false

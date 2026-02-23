@@ -222,14 +222,12 @@ value="
 .param VDD = 1.2
 
 .control
-.options maxstep=10n reltol=1e-3 abstol=1e-6
+.options maxstep=100P reltol=1e-3 abstol=1e-6
 pre_osdi ./freq_div.osdi
-*save all
-set appendwrite
-  
-  tran 50p 2000n uic
-  write tb_pll_freq_div.raw
+save v(CTRL) v(OUTp) v(F_REF) v(F_DIV)
 
+tran 50p 500n uic
+write tb_pll_freq_div.raw
 *quit 0
 .endc
 "}

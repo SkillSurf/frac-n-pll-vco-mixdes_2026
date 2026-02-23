@@ -23,7 +23,7 @@ let i = 0
 dowhile i < 10
   reset
   run
-  write tb_PFD_std.raw
+  write PFD_tb.raw
   set appendwrite
   reset
   let i = i + 1

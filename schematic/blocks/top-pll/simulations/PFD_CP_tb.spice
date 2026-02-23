@@ -29,7 +29,7 @@ dowhile i < 1
 
 
   tran 100p 100n uic
-  write tb_CP.raw
+  write PFD_CP_tb.raw
   let i = i + 1
 end
 quit 0

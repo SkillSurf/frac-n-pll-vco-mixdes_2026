@@ -15,10 +15,10 @@ n1 OUTd OUTp freq_div
 
 
 .model freq_div freq_div
-.include /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/simulations/IHP_4nH_Inductor.spice
+.include ./IHP_4nH_Inductor.spice
 .param temp=27
 .control
-pre_osdi /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/freq_div.osdi
+pre_osdi ./freq_div.osdi
 save all
 *.ic v(OUTp)=0.6
 
@@ -46,7 +46,7 @@ linearize v(OUTp) v(Vctrl) v(outd)
     end
 
 * Save transient waveform to raw file
-write tb_VCO.raw
+write LCVCO_freqdiv.raw
 
 *quit 0
 .endc

@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-2.3892726e-07
-x2=-1.2372841e-07
+x1=1e-12
+x2=1e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-2.3892726e-07
-x2=-1.2372841e-07
+x1=1e-12
+x2=1e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -59,8 +59,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-2.3892726e-07
-x2=-1.2372841e-07
+x1=1e-12
+x2=1e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -88,7 +88,7 @@ C {lab_pin.sym} 700 -320 0 1 {name=p6 lab=CTRL}
 C {lab_pin.sym} 600 -260 0 0 {name=p14 lab=GND}
 C {launcher.sym} 490 -730 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_CP.raw tran
+tclcommand="xschem raw_read $netlist_dir/PFD_CP_tb.raw tran
 "
 }
 C {launcher.sym} 490 -700 0 0 {name=h4
@@ -136,13 +136,13 @@ dowhile i < 1
 
   
   tran 100p 100n uic
-  write tb_CP.raw
+  write PFD_CP_tb.raw
   let i = i + 1
 end
 quit 0
 .endc
 "}
-C {simulator_commands_shown.sym} -520 -820 0 0 {
+C {simulator_commands_shown.sym} -400 -820 0 0 {
 name=Libs_Ngspice
 simulator=ngspice
 only_toplevel=false
@@ -163,7 +163,7 @@ value="
 .param CP_N_M = 1
 .param C_CP = 10f
 "}
-C {devices/code_shown.sym} -520 -1000 0 0 {name=MODEL only_toplevel=true
+C {devices/code_shown.sym} 70 -80 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat

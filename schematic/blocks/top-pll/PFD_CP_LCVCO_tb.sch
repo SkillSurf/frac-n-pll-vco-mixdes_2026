@@ -65,6 +65,10 @@ N 290 -580 290 -550 {lab=GND}
 N 10 -660 10 -640 {lab=Ibias}
 N 150 -660 190 -660 {lab=Ibias}
 N 290 -780 290 -760 {lab=VDD}
+N 750 -680 770 -680 {lab=OUTd}
+N 520 -680 570 -680 {lab=OUTp}
+N 520 -750 520 -680 {lab=OUTp}
+N 480 -680 520 -680 {lab=OUTp}
 C {vsource.sym} -110 -690 0 0 {name=V1 value=1.2 savecurrent=false}
 C {vsource.sym} -50 -690 0 0 {name=V2 value="pulse(0.3 1.0 50n 100n 100n 200n)" savecurrent=false}
 C {gnd.sym} -110 -620 0 0 {name=l1 lab=GND}
@@ -73,7 +77,7 @@ C {devices/vdd.sym} -110 -800 0 0 {name=l5 lab=VDD}
 C {devices/vdd.sym} -50 -800 0 0 {name=l8 lab=VCTRL}
 C {launcher.sym} 400 -450 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_VCO.raw tran"
+tclcommand="xschem raw_read $netlist_dir/LCVCO_freqdiv.raw tran"
 }
 C {opin.sym} 450 -660 0 0 {name=p1 lab=OUTn
 }
@@ -122,7 +126,7 @@ linearize v(OUTp) v(Vctrl) v(outd)
     end
 
 * Save transient waveform to raw file
-write tb_VCO.raw
+write LCVCO_freqdiv.raw
 
 *quit 0
 .endc
@@ -142,9 +146,8 @@ value="
 
 "
       }
-C {lab_pin.sym} 480 -680 0 1 {name=p23 lab=OUTp}
-C {lab_pin.sym} 600 -800 0 1 {name=p7 lab=OUTd}
-C {lab_pin.sym} 420 -800 0 0 {name=p2 lab=OUTp}
+C {lab_pin.sym} 520 -750 0 1 {name=p23 lab=OUTp}
+C {lab_pin.sym} 770 -680 0 1 {name=p7 lab=OUTd}
 C {sg13g2_stdcells/sg13g2_inv_2.sym} 440 -680 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
 C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 290 -670 0 0 {name=x1}
-C {freq_div.sym} 450 -800 0 0 {name=n1}
+C {freq_div.sym} 600 -680 0 0 {name=n1}
