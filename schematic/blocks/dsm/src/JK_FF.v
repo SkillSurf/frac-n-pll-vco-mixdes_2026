@@ -1,7 +1,7 @@
 // =========================================================
 // Basic Building Block: JK Flip-Flop (Constructed from DFF)
 // =========================================================
-// `include "../../DFF.v"
+//`include "DFF.v"
 
 module JK_FF (
     input wire clk,

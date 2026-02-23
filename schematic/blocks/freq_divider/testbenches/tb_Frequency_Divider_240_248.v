@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-`include "../../Frequency_Divider_240_248.v"
+`include "Frequency_Divider_240_248.v"
 
 module tb_Frequency_Divider_240_248;
     // Inputs

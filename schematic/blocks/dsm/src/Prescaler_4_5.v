@@ -2,7 +2,7 @@
 // Module 2: 4/5 Pre-scaler (Dual Modulus Divider)
 // Logic: Divides by 4 normally. If MC=0, swallows a pulse (Div 5).
 // ===============================================================
-// `include "../../DFF.v"
+//`include "DFF.v"
 
 module Prescaler_4_5 (
     input wire clk,     // Input from Div-4 block

@@ -29,7 +29,7 @@ def write_serial_word(f, word):
     f.write("s 10000\n\n")  # delay after word
 
 def main():
-    with open("../xschem/simulation/stimuli_test.txt", "w") as f:
+    with open("../xschem/simulation/stimuli_input_0.txt", "w") as f:
         # Header
         f.write("unit n\n")
         f.write("voltage 1.8\n")
@@ -43,14 +43,18 @@ def main():
         f.write("set rst 1\nset en 0\nset sclk 0\nset sdata 0\ns 50\n")
         f.write("set rst 0\ns 20\n\n")
 
-        # Sweep from -128 to +127 step 16
-        for word in range(-128, 128, 16):
-            write_serial_word(f, word)
+        ####### FOR TESTING DSM ############
+        # # Sweep from -128 to +127 step 16
+        # for word in range(-128, 128, 16):
+        #     write_serial_word(f, word)
+        ####################################
+
+        write_serial_word(f, 0)
 
         # End
         f.write("endfile\n")
 
-    print("✅ Stimulus file 'stimuli_test.txt' generated successfully with 100 MHz SCLK.")
+    print("✅ Stimulus file generated successfully with 100 MHz SCLK.")
 
 if __name__ == "__main__":
     main()
