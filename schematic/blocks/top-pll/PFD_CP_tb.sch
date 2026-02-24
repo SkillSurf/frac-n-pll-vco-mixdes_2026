@@ -111,8 +111,6 @@ C {lab_pin.sym} 410 -300 0 1 {name=p15 lab=DN}
 C {lab_pin.sym} 260 -260 0 0 {name=p16 lab=GND}
 C {lab_pin.sym} 530 -330 0 0 {name=p17 lab=UP}
 C {lab_pin.sym} 530 -310 0 0 {name=p7 lab=DN}
-C {PFD_std.sym} 260 -320 0 0 {name=x2}
-C {CP.sym} 600 -320 0 0 {name=x1}
 C {simulator_commands_shown.sym} -380 -470 0 0 {name=SimulatorNGSPICE
 simulator=ngspice
 only_toplevel=false 
@@ -168,3 +166,5 @@ format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat
 "}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym} 260 -320 0 0 {name=x1}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 600 -320 0 0 {name=x2}

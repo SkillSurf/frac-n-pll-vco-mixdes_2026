@@ -10,7 +10,7 @@ V2 VCTRL GND pulse(0.3 1.0 50n 100n 100n 200n)
 I0 VDD Ibias 50u
 x5 OUTp net1 VDD GND sg13g2_inv_2
 x1 VDD net1 OUTn Ibias VCTRL GND LC_VCO
-n1 OUTd OUTp freq_div
+x2 OUTp OUTd Freq_Div_std
 **** begin user architecture code
 
 
@@ -84,11 +84,25 @@ XM4 OUTp OUTn VDD VDD sg13_lv_pmos w=8.5u l=0.5u ng=1 m=13
 X5M3 OUTn OUTp VDD VDD sg13_lv_pmos w=8.5u l=0.5u ng=1 m=13
 XM2 OUTp OUTn net1 GND sg13_lv_nmos w=2u l=0.5u ng=1 m=12
 XM1 OUTn OUTp net1 GND sg13_lv_nmos w=2u l=0.5u ng=1 m=12
-XC3 OUTp OUTn cap_cmim w=4.0e-6 l=4.0e-6 m=14
-x1 OUTn OUTp ihp_4nh_inductor
-R6 OUTp OUTn 1.28k m=1
+XC3 OUTp OUTn cap_cmim w=4.0e-6 l=4.0e-6 m=13.6
 XMv2 OUTp VCTRL OUTp VDD sg13_lv_pmos w=4u l=4u ng=1 m=22
 XMv1 OUTn VCTRL OUTn VDD sg13_lv_pmos w=4u l=4u ng=1 m=22
+*  x1 -  ihp_4nh_inductor  IS MISSING !!!!
+XR1 OUTn OUTp sub! rhigh w=1e-6 l=1e-6 m=1.23 b=0
+.ends
+
+
+* expanding   symbol:  /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym # of
+*+ pins=2
+** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sch
+.subckt Freq_Div_std F_IN F_OUT
+*.opin F_OUT
+*.ipin F_IN
+x6 net3 net1 F_IN net1 VDD VDD GND sg13g2_dfrbp_1
+x5 net4 net2 net3 net2 VDD VDD GND sg13g2_dfrbp_2
+x7 net6 net5 net4 net5 VDD VDD GND sg13g2_dfrbp_2
+x8 F_OUT net7 net6 net7 VDD VDD GND sg13g2_dfrbp_2
 .ends
 
 .GLOBAL GND

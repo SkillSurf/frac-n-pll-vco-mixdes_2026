@@ -200,10 +200,6 @@ device=resistor
 m=1}
 C {sg13g2_stdcells/sg13g2_inv_2.sym} 1570 -960 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
 C {lab_pin.sym} 1210 -1000 0 1 {name=p10 lab=CTRL}
-C {PFD_std.sym} 670 -950 0 0 {name=x1}
-C {CP.sym} 1010 -960 0 0 {name=x3}
-C {LC_VCO.sym} 1420 -950 0 0 {name=x4}
-C {freq_div.sym} 1380 -700 2 0 {name=n1}
 C {vdd.sym} 670 -1060 0 0 {name=l6 lab=VDD}
 C {vdd.sym} 1010 -1060 0 0 {name=l2 lab=VDD}
 C {vdd.sym} 1420 -1060 0 0 {name=l4 lab=VDD}
@@ -252,3 +248,7 @@ value="
 .param CP_N_M = 1
 .param C_CP = 700p
 "}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 1420 -950 0 0 {name=x1}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 1010 -960 0 0 {name=x2}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym} 670 -950 0 0 {name=x3}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 1330 -700 0 1 {name=x4}

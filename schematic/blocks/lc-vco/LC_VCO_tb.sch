@@ -6,14 +6,14 @@ S {}
 F {}
 E {}
 B 2 -640 130 160 530 {flags=graph
-y1=0.28
-y2=1.8
+y1=0.094
+y2=1.1
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1e-13
 x2=5e-07
 divx=5
 subdivx=1
@@ -61,28 +61,28 @@ C {iopin.sym} -380 -60 2 0 {name=p6 lab=VCTRL
 }
 C {iopin.sym} -240 70 1 0 {name=p3 lab=GND
 }
-C {LC_VCO.sym} -240 -50 0 0 {name=x1}
 C {devices/isource.sym} -520 -70 0 0 {name=I0 value=50u}
 C {devices/vdd.sym} -520 -100 0 0 {name=l12 lab=VDD}
 C {devices/vdd.sym} -520 -20 2 0 {name=l3 lab=Ibias}
 C {iopin.sym} -380 -40 2 0 {name=p5 lab=Ibias
 }
-C {devices/code_shown.sym} 200 -180 0 0 {name=MODEL only_toplevel=true
+C {devices/code_shown.sym} 200 -190 0 0 {name=MODEL only_toplevel=true
 format="tcleval( @value )"
 value=".lib cornerMOSlv.lib mos_tt
+.lib cornerRES.lib res_typ
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat
 "}
-C {devices/code_shown.sym} 210 -110 0 0 {name=NGSPICE1 only_toplevel=true 
+C {LC_VCO.sym} -240 -50 0 0 {name=x1}
+C {devices/code_shown.sym} 200 -100 0 0 {name=NGSPICE1 only_toplevel=true 
 value="
 .include ./IHP_4nH_Inductor.spice
 .param temp=27
 .control
-save all
 .ic v(OUTp)=0.6
 
 .options maxstep=10n reltol=1e-3 abstol=1e-6
-save v(vout)
-tran 0.01n 0.5u UIC
+save v(OUTp) V(CTRL)
+tran 1p 0.2u UIC
 
 * Save transient waveform to raw file
 write LC_VCO_tb.raw
@@ -100,7 +100,7 @@ let vmag = db(mag(v(OUTp)))
 plot vmag xlabel 'Frequency (Hz)' xlimit 0 5G
 
 * Save FFT data to text file
-wrdata fft_output(VCTRL=0.6).txt vmag
+wrdata fft_output(VCTRL=0.7).txt vmag
 
 .endc
 "}
