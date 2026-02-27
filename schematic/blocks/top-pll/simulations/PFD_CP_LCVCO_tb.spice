@@ -14,6 +14,20 @@ x2 OUTp OUTd Freq_Div_std
 **** begin user architecture code
 
 
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerHBT.lib hbt_typ
+.lib cornerRES.lib res_typ
+.lib cornerCAP.lib cap_typ_stat
+.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+.global VDD GND
+
+
+
+
+
+
 .model freq_div freq_div
 .include ./IHP_4nH_Inductor.spice
 .param temp=27
@@ -50,19 +64,6 @@ write LCVCO_freqdiv.raw
 
 *quit 0
 .endc
-
-
-
-
-
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.lib cornerCAP.lib cap_typ_stat
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
 
 
 **** end user architecture code

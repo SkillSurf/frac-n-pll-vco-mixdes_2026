@@ -75,7 +75,7 @@ C {gnd.sym} -110 -620 0 0 {name=l1 lab=GND}
 C {gnd.sym} -50 -620 0 0 {name=l2 lab=GND}
 C {devices/vdd.sym} -110 -800 0 0 {name=l5 lab=VDD}
 C {devices/vdd.sym} -50 -800 0 0 {name=l8 lab=VCTRL}
-C {launcher.sym} 400 -450 0 0 {name=h5
+C {launcher.sym} 640 -530 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/LCVCO_freqdiv.raw tran"
 }
@@ -92,7 +92,27 @@ C {devices/vdd.sym} 10 -720 0 0 {name=l12 lab=VDD}
 C {devices/vdd.sym} 10 -640 2 0 {name=l3 lab=Ibias}
 C {iopin.sym} 150 -660 2 0 {name=p5 lab=Ibias
 }
-C {devices/code_shown.sym} 840 -860 0 0 {name=NGSPICE1 only_toplevel=true 
+C {simulator_commands_shown.sym} 740 -840 0 0 {
+name=Libs_Ngspice
+simulator=ngspice
+only_toplevel=false
+value="
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerHBT.lib hbt_typ
+.lib cornerRES.lib res_typ
+.lib cornerCAP.lib cap_typ_stat
+.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+.global VDD GND
+
+"
+      }
+C {lab_pin.sym} 520 -750 0 1 {name=p23 lab=OUTp}
+C {lab_pin.sym} 770 -680 0 1 {name=p7 lab=OUTd}
+C {sg13g2_stdcells/sg13g2_inv_2.sym} 440 -680 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 290 -670 0 0 {name=x1}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 650 -680 0 0 {name=x2}
+C {simulator_commands.sym} 930 -600 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .model freq_div freq_div
 .include ./IHP_4nH_Inductor.spice
@@ -131,23 +151,3 @@ write LCVCO_freqdiv.raw
 *quit 0
 .endc
 "}
-C {simulator_commands_shown.sym} -130 -420 0 0 {
-name=Libs_Ngspice
-simulator=ngspice
-only_toplevel=false
-value="
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.lib cornerCAP.lib cap_typ_stat
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
-"
-      }
-C {lab_pin.sym} 520 -750 0 1 {name=p23 lab=OUTp}
-C {lab_pin.sym} 770 -680 0 1 {name=p7 lab=OUTd}
-C {sg13g2_stdcells/sg13g2_inv_2.sym} 440 -680 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 290 -670 0 0 {name=x1}
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 650 -680 0 0 {name=x2}
