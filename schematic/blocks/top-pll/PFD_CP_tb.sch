@@ -111,7 +111,35 @@ C {lab_pin.sym} 410 -300 0 1 {name=p15 lab=DN}
 C {lab_pin.sym} 260 -260 0 0 {name=p16 lab=GND}
 C {lab_pin.sym} 530 -330 0 0 {name=p17 lab=UP}
 C {lab_pin.sym} 530 -310 0 0 {name=p7 lab=DN}
-C {simulator_commands_shown.sym} -380 -470 0 0 {name=SimulatorNGSPICE
+C {simulator_commands_shown.sym} -400 -820 0 0 {
+name=Libs_Ngspice
+simulator=ngspice
+only_toplevel=false
+value="
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerHBT.lib hbt_typ
+.lib cornerRES.lib res_typ
+.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+.global VDD GND
+
+
+.param CP_N_L = 0.5u
+.param CP_N_W = 3u
+.param CP_P_M = 1
+.param CP_P_L = 0.5u
+.param CP_P_W = 10u
+.param CP_N_M = 1
+.param C_CP = 10f
+"}
+C {devices/code_shown.sym} -400 -380 0 0 {name=MODEL only_toplevel=true
+format="tcleval( @value )"
+value=".lib cornerMOSlv.lib mos_tt
+.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat
+"}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym} 260 -320 0 0 {name=x1}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 600 -320 0 0 {name=x2}
+C {simulator_commands.sym} -150 -580 0 0 {name=SimulatorNGSPICE
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -140,31 +168,3 @@ end
 quit 0
 .endc
 "}
-C {simulator_commands_shown.sym} -400 -820 0 0 {
-name=Libs_Ngspice
-simulator=ngspice
-only_toplevel=false
-value="
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
-
-.param CP_N_L = 0.5u
-.param CP_N_W = 3u
-.param CP_P_M = 1
-.param CP_P_L = 0.5u
-.param CP_P_W = 10u
-.param CP_N_M = 1
-.param C_CP = 10f
-"}
-C {devices/code_shown.sym} 70 -80 0 0 {name=MODEL only_toplevel=true
-format="tcleval( @value )"
-value=".lib cornerMOSlv.lib mos_tt
-.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat
-"}
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym} 260 -320 0 0 {name=x1}
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 600 -320 0 0 {name=x2}

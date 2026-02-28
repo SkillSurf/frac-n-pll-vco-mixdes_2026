@@ -10,6 +10,29 @@ x2 VDD UP CTRL DN GND Ibias CP
 
 
 
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerHBT.lib hbt_typ
+.lib cornerRES.lib res_typ
+.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+.global VDD GND
+
+
+.param CP_N_L = 0.5u
+.param CP_N_W = 3u
+.param CP_P_M = 1
+.param CP_P_L = 0.5u
+.param CP_P_W = 10u
+.param CP_N_M = 1
+.param C_CP = 10f
+
+
+ .lib cornerMOSlv.lib mos_tt
+.lib /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerCAP.lib cap_typ_stat
+
+
+
+
 .param RAW_TEMP = agauss(40, 30, 1)
 .param TEMPGAUSS = max(20, min(RAW_TEMP, 80))
 .option temp = 'TEMPGAUSS'
@@ -35,29 +58,6 @@ end
 quit 0
 .endc
 
-
-
-
-
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
-
-.param CP_N_L = 0.5u
-.param CP_N_W = 3u
-.param CP_P_M = 1
-.param CP_P_L = 0.5u
-.param CP_P_W = 10u
-.param CP_N_M = 1
-.param C_CP = 10f
-
-
- .lib cornerMOSlv.lib mos_tt
-.lib /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerCAP.lib cap_typ_stat
 
 **** end user architecture code
 **.ends

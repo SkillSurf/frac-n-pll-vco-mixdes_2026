@@ -1,4 +1,4 @@
-v {xschem version=3.4.8RC file_version=1.3
+v {xschem version=3.4.8RC file_version=1.2
 *
 * This file is part of XSCHEM,
 * a schematic capture and Spice/Vhdl/Verilog netlisting tool for circuit

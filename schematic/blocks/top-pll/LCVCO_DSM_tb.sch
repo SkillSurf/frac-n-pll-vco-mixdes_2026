@@ -13,7 +13,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1.1814299e-08
+x1=1e-11
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -24,13 +24,43 @@ logx=0
 logy=0
 autoload=1
 sim_type=tran
-color="5 4 12"
-node="Outp
+color="12 4 7"
+node="vctrl
 outd
-Vctrl"
-x2=1.718143e-07
+outp"
+x2=0.001
 hcursor1_y=0.41963418
 hcursor2_y=0.70549986}
+B 2 710 -1230 1870 -1020 {flags=graph
+y1=0
+y2=3
+ypos1=0
+ypos2=3
+divy=5
+subdivy=1
+unity=1
+x1=1e-11
+x2=0.001
+
+subdivx=4
+xlabmag=1.2
+ylabmag=1.0
+
+dataset=-1
+unitx=1
+logx=0
+logy=0
+digital=1
+divx=4
+legend=1
+color="4 4 4 4 12 7"
+node="sdata
+sclk
+en
+rst
+
+outd
+outp"}
 N -50 -660 -50 -620 {lab=GND}
 N -110 -800 -110 -720 {lab=VDD}
 N -110 -660 -110 -620 {lab=GND}
@@ -82,7 +112,7 @@ C {devices/vdd.sym} 10 -720 0 0 {name=l12 lab=VDD}
 C {devices/vdd.sym} 10 -640 2 0 {name=l3 lab=Ibias}
 C {iopin.sym} 150 -660 2 0 {name=p5 lab=Ibias
 }
-C {simulator_commands_shown.sym} 730 -1280 0 0 {
+C {simulator_commands_shown.sym} 1140 -930 0 0 {
 name=Libs_Ngspice
 simulator=ngspice
 only_toplevel=false
@@ -153,26 +183,53 @@ C {noconn.sym} 560 -660 2 1 {name=l9}
 C {noconn.sym} 560 -640 2 1 {name=l13}
 C {noconn.sym} 560 -620 2 1 {name=l14}
 C {noconn.sym} 560 -600 2 1 {name=l15}
-C {simulator_commands.sym} 850 -1030 0 0 {name=SimulatorNGSPICE
+C {simulator_commands.sym} 1270 -670 0 0 {name=SimulatorNGSPICE1
 vhdl_ignore=1
 spice_ignore="tcleval([regexp -nocase \{xyce\} $sim(spice,$sim(spice,default),name)])"
 simulator=ngspice
 only_toplevel=false 
 value="
-
 .include ./IHP_4nH_Inductor.spice
-.include stimuli_test.cir
-
 .param temp=27
-
 .save v(OUTp) v(Vctrl)
 .save v(dout) v(sdata) v(sclk) v(en) v(rst)
 .save v(dsm_clk) v(outd)
-
 .control
-  .options maxstep=50p reltol=1e-3 abstol=1e-6
-  tran 1n 1m UIC
-  remzerovec
-  write LCVCO_DSM.raw
+.options maxstep=50p reltol=1e-3 abstol=1e-6
+
+*.ic v(OUTp)=0.6
+tran 0.5n 1m
+remzerovec
+linearize v(OUTp) v(Vctrl) v(outd)
+
+    let n_pts = length(time)
+    let freq_vector = unitvec(n_pts) * 0
+    
+    * Advanced script to calculate instantaneous frequency
+    let i = 1
+    let last_cross = 0
+    while i < length(time)
+        if (v(OUTp)[i] >= 0.6) & (v(OUTp)[i-1] < 0.6)
+            let current_cross = time[i]
+            let period = current_cross - last_cross
+            let inst_freq = 1 / period
+            let freq_vector[i] = inst_freq
+            let last_cross = current_cross
+        else
+            let freq_vector[i] = freq_vector[i-1]
+        end
+        let i = i + 1
+    end
+
+* Save transient waveform to raw file
+write LCVCO_DSM.raw
+
+*quit 0
 .endc
+
+
+* to generate following file copy stimuli.test
+* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI), 
+* and press 'Translate'
+.include stimuli_test.cir
 "}

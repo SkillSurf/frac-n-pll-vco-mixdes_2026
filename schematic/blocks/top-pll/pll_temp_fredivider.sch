@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.8371629e-06
-x2=4.8371618e-06
+x1=5e-13
+x2=5e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.8371629e-06
-x2=4.8371618e-06
+x1=5e-13
+x2=5e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -59,8 +59,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.8371629e-06
-x2=4.8371618e-06
+x1=5e-13
+x2=5e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -69,9 +69,9 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color=11
+color="11 7"
 node="vdd
-"}
+outp"}
 B 2 1300 -1520 2100 -1120 {flags=graph
 y1=-212.99966
 y2=30.440979
@@ -80,8 +80,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=-12407539
-x2=3.4076161e+09
+x1=1.1837276e-07
+x2=6.1837226e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -94,18 +94,18 @@ autoload=1
 sim_type=sp
 color="5 4"
 node="Out;outp db20()
-F_DIV;F_DIV db20()"
+F_DIV;f_div db20()"
 hilight_wave=-1}
 B 2 2100 -1520 2900 -1120 {flags=graph
-y1=-0.016
-y2=1.3
+y1=0.00046
+y2=1.2
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.8371629e-06
-x2=4.8371618e-06
+x1=5e-13
+x2=5e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -171,7 +171,7 @@ C {lab_pin.sym} 500 -950 0 1 {name=p11 sig_type=std_logic lab=F_REF}
 C {gnd.sym} 500 -690 0 0 {name=l10 lab=GND}
 C {launcher.sym} 1880 -800 0 0 {name=h1
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_COMB.raw tran
+tclcommand="xschem raw_read $netlist_dir/tb_pll_freq_div.raw tran
 "
 }
 C {launcher.sym} 1880 -760 0 0 {name=h4
@@ -208,25 +208,6 @@ C {lab_pin.sym} 1280 -920 0 0 {name=p1 sig_type=std_logic lab=IbiasVCO
 C {gnd.sym} 670 -850 0 0 {name=l3 lab=GND}
 C {gnd.sym} 1010 -860 0 0 {name=l7 lab=GND}
 C {gnd.sym} 1420 -810 0 0 {name=l8 lab=GND}
-C {simulator_commands_shown.sym} 1480 -590 0 0 {name=SimulatorNGSPICE
-simulator=ngspice
-only_toplevel=false 
-value="
-.model freq_div freq_div
-.include ./IHP_4nH_Inductor.spice
-.option temp = 27
-.param VDD = 1.2
-
-.control
-.options maxstep=100P reltol=1e-3 abstol=1e-6
-pre_osdi ./freq_div.osdi
-save v(CTRL) v(OUTp) v(F_REF) v(F_DIV)
-
-tran 50p 500n uic
-write tb_pll_freq_div.raw
-*quit 0
-.endc
-"}
 C {simulator_commands_shown.sym} 720 -590 0 0 {
 name=Libs_Ngspice1
 simulator=ngspice
@@ -252,3 +233,23 @@ C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco
 C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 1010 -960 0 0 {name=x2}
 C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym} 670 -950 0 0 {name=x3}
 C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 1330 -700 0 1 {name=x4}
+C {simulator_commands.sym} 1670 -550 0 0 {name=SimulatorNGSPICE
+simulator=ngspice
+only_toplevel=false 
+value="
+.model freq_div freq_div
+.include ./IHP_4nH_Inductor.spice
+.option temp = 27
+.param VDD = 1.2
+.ic v(OUTp)=0.6
+
+.control
+.options maxstep=100P reltol=1e-3 abstol=1e-6
+pre_osdi ./freq_div.osdi
+save v(CTRL) v(OUTp) v(F_REF) v(F_DIV) v(UP) v(DN) v(F_VCO) 
+
+tran 50p 500n uic
+write tb_pll_freq_div.raw
+*quit 0
+.endc
+"}
