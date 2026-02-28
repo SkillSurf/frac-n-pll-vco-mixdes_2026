@@ -1,1 +1,4 @@
+# File extensions to ignore
 *.raw
+*.nodes
+*.sim
