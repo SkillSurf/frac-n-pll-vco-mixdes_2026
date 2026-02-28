@@ -6,14 +6,14 @@ S {}
 F {}
 E {}
 B 2 -190 -1290 610 -890 {flags=graph
-y1=0.083494078
-y2=0.94979809
+y1=-0.029
+y2=1.3
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1.1814299e-08
+x1=0
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -28,7 +28,7 @@ color="5 4 12"
 node="Outp
 outd
 Vctrl"
-x2=1.718143e-07
+x2=2e-07
 hcursor1_y=0.41963418
 hcursor2_y=0.70549986}
 B 2 640 -1290 1440 -890 {flags=graph
@@ -39,7 +39,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1.1814299e-08
+x1=0
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -52,7 +52,7 @@ autoload=1
 sim_type=tran
 color=21
 node=freq_vector
-x2=1.718143e-07
+x2=2e-07
 hcursor1_y=2.2597346e+09
 hcursor2_y=2.5045169e+09}
 N -50 -660 -50 -620 {lab=GND}

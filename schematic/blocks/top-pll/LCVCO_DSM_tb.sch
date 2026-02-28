@@ -13,7 +13,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1e-11
+x1=0
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -191,35 +191,13 @@ only_toplevel=false
 value="
 .include ./IHP_4nH_Inductor.spice
 .param temp=27
-.save v(OUTp) v(Vctrl)
-.save v(dout) v(sdata) v(sclk) v(en) v(rst)
-.save v(dsm_clk) v(outd)
 .control
+save all
 .options maxstep=50p reltol=1e-3 abstol=1e-6
 
 *.ic v(OUTp)=0.6
 tran 0.5n 1m
 remzerovec
-linearize v(OUTp) v(Vctrl) v(outd)
-
-    let n_pts = length(time)
-    let freq_vector = unitvec(n_pts) * 0
-    
-    * Advanced script to calculate instantaneous frequency
-    let i = 1
-    let last_cross = 0
-    while i < length(time)
-        if (v(OUTp)[i] >= 0.6) & (v(OUTp)[i-1] < 0.6)
-            let current_cross = time[i]
-            let period = current_cross - last_cross
-            let inst_freq = 1 / period
-            let freq_vector[i] = inst_freq
-            let last_cross = current_cross
-        else
-            let freq_vector[i] = freq_vector[i-1]
-        end
-        let i = i + 1
-    end
 
 * Save transient waveform to raw file
 write LCVCO_DSM.raw

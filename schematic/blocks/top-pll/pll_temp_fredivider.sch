@@ -80,8 +80,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=1.1837276e-07
-x2=6.1837226e-07
+x1=5e-13
+x2=5e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -248,7 +248,7 @@ value="
 pre_osdi ./freq_div.osdi
 save v(CTRL) v(OUTp) v(F_REF) v(F_DIV) v(UP) v(DN) v(F_VCO) 
 
-tran 50p 500n uic
+tran 50p 5u uic
 write tb_pll_freq_div.raw
 *quit 0
 .endc

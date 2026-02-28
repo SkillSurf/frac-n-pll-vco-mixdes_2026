@@ -46,7 +46,7 @@ x4 OUTp F_DIV Freq_Div_std
 pre_osdi ./freq_div.osdi
 save v(CTRL) v(OUTp) v(F_REF) v(F_DIV) v(UP) v(DN) v(F_VCO)
 
-tran 50p 500n uic
+tran 50p 5u uic
 write tb_pll_freq_div.raw
 *quit 0
 .endc
