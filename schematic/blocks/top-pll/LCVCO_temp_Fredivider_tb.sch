@@ -55,44 +55,44 @@ node=freq_vector
 x2=2e-07
 hcursor1_y=2.2597346e+09
 hcursor2_y=2.5045169e+09}
-N -50 -660 -50 -620 {lab=GND}
-N -110 -800 -110 -720 {lab=VDD}
-N -110 -660 -110 -620 {lab=GND}
-N -50 -800 -50 -720 {lab=VCTRL}
-N 400 -660 450 -660 {lab=OUTn}
-N 150 -680 190 -680 {lab=VCTRL}
-N 290 -580 290 -550 {lab=GND}
-N 10 -660 10 -640 {lab=Ibias}
-N 150 -660 190 -660 {lab=Ibias}
-N 290 -780 290 -760 {lab=VDD}
-N 750 -680 770 -680 {lab=OUTd}
-N 520 -680 570 -680 {lab=OUTp}
-N 520 -750 520 -680 {lab=OUTp}
-N 480 -680 520 -680 {lab=OUTp}
-C {vsource.sym} -110 -690 0 0 {name=V1 value=1.2 savecurrent=false}
-C {vsource.sym} -50 -690 0 0 {name=V2 value="pulse(0.3 1.0 50n 100n 100n 200n)" savecurrent=false}
-C {gnd.sym} -110 -620 0 0 {name=l1 lab=GND}
-C {gnd.sym} -50 -620 0 0 {name=l2 lab=GND}
-C {devices/vdd.sym} -110 -800 0 0 {name=l5 lab=VDD}
-C {devices/vdd.sym} -50 -800 0 0 {name=l8 lab=VCTRL}
-C {launcher.sym} 640 -530 0 0 {name=h5
+N -50 -670 -50 -630 {lab=GND}
+N -180 -810 -180 -730 {lab=VDD}
+N -180 -670 -180 -630 {lab=GND}
+N -50 -810 -50 -730 {lab=VCTRL}
+N 500 -670 550 -670 {lab=OUTn}
+N 250 -690 290 -690 {lab=VCTRL}
+N 390 -590 390 -560 {lab=GND}
+N -110 -670 -110 -650 {lab=Ibias}
+N 250 -670 290 -670 {lab=Ibias}
+N 390 -790 390 -770 {lab=VDD}
+N 850 -690 870 -690 {lab=OUTd}
+N 620 -690 670 -690 {lab=OUTp}
+N 620 -760 620 -690 {lab=OUTp}
+N 580 -690 620 -690 {lab=OUTp}
+C {vsource.sym} -180 -700 0 0 {name=V1 value=1.2 savecurrent=false}
+C {vsource.sym} -50 -700 0 0 {name=V2 value="pulse(0.3 1.0 50n 100n 100n 200n)" savecurrent=false}
+C {gnd.sym} -180 -630 0 0 {name=l1 lab=GND}
+C {gnd.sym} -50 -630 0 0 {name=l2 lab=GND}
+C {devices/vdd.sym} -180 -810 0 0 {name=l5 lab=VDD}
+C {devices/vdd.sym} -50 -810 0 0 {name=l8 lab=VCTRL}
+C {launcher.sym} 740 -540 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/LCVCO_freqdiv.raw tran"
 }
-C {opin.sym} 450 -660 0 0 {name=p1 lab=OUTn
+C {opin.sym} 550 -670 0 0 {name=p1 lab=OUTn
 }
-C {iopin.sym} 290 -780 3 0 {name=p4 lab=VDD
+C {iopin.sym} 390 -790 3 0 {name=p4 lab=VDD
 }
-C {iopin.sym} 150 -680 2 0 {name=p6 lab=VCTRL
+C {iopin.sym} 250 -690 2 0 {name=p6 lab=VCTRL
 }
-C {iopin.sym} 290 -550 1 0 {name=p3 lab=GND
+C {iopin.sym} 390 -560 1 0 {name=p3 lab=GND
 }
-C {devices/isource.sym} 10 -690 0 0 {name=I0 value=50u}
-C {devices/vdd.sym} 10 -720 0 0 {name=l12 lab=VDD}
-C {devices/vdd.sym} 10 -640 2 0 {name=l3 lab=Ibias}
-C {iopin.sym} 150 -660 2 0 {name=p5 lab=Ibias
+C {devices/isource.sym} -110 -700 0 0 {name=I0 value=50u}
+C {devices/vdd.sym} -110 -730 0 0 {name=l12 lab=VDD}
+C {devices/vdd.sym} -110 -650 2 0 {name=l3 lab=Ibias}
+C {iopin.sym} 250 -670 2 0 {name=p5 lab=Ibias
 }
-C {simulator_commands_shown.sym} 740 -840 0 0 {
+C {simulator_commands_shown.sym} 940 -840 0 0 {
 name=Libs_Ngspice
 simulator=ngspice
 only_toplevel=false
@@ -107,12 +107,12 @@ value="
 
 "
       }
-C {lab_pin.sym} 520 -750 0 1 {name=p23 lab=OUTp}
-C {lab_pin.sym} 770 -680 0 1 {name=p7 lab=OUTd}
-C {sg13g2_stdcells/sg13g2_inv_2.sym} 440 -680 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 290 -670 0 0 {name=x1}
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 650 -680 0 0 {name=x2}
-C {simulator_commands.sym} 930 -600 0 0 {name=NGSPICE only_toplevel=true 
+C {lab_pin.sym} 620 -760 0 1 {name=p23 lab=OUTp}
+C {lab_pin.sym} 870 -690 0 1 {name=p7 lab=OUTd}
+C {sg13g2_stdcells/sg13g2_inv_2.sym} 540 -690 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 390 -680 0 0 {name=x1}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 750 -690 0 0 {name=x2}
+C {simulator_commands.sym} 1050 -600 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .model freq_div freq_div
 .include ./IHP_4nH_Inductor.spice
