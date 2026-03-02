@@ -229,7 +229,13 @@ value="
 .param CP_N_M = 1
 .param C_CP = 700p
 "}
+<<<<<<< Updated upstream
 C {FD/Freq_Div_std.sym} 1330 -700 0 1 {name=x4}
+=======
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 1010 -960 0 0 {name=x2}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym} 670 -950 0 0 {name=x3}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 1330 -700 0 1 {name=x4}
+>>>>>>> Stashed changes
 C {simulator_commands.sym} 1670 -550 0 0 {name=SimulatorNGSPICE
 simulator=ngspice
 only_toplevel=false 
@@ -250,6 +256,10 @@ write tb_pll_freq_div.raw
 *quit 0
 .endc
 "}
+<<<<<<< Updated upstream
 C {lc-vco/LC_VCO.sym} 1420 -950 0 0 {name=x3}
 C {charge-pump/CP.sym} 1010 -960 0 0 {name=x1}
 C {phase-freq-detector/PFD_std.sym} 670 -950 0 0 {name=x2}
+=======
+C {/foss/designs/frac-n-pll-vco-mixdes_2026/schematic/blocks/lc-vco/LC_VCO.sym} 1420 -950 0 0 {name=x1}
+>>>>>>> Stashed changes
