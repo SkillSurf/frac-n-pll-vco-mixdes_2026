@@ -1,4 +1,4 @@
-v {xschem version=3.4.8RC file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
@@ -233,7 +233,6 @@ m=22
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {ihp_4nh_inductor.sym} 2150 270 0 0 {name=x1}
 C {sg13g2_pr/rhigh.sym} 2160 360 1 0 {name=R1
 w=1e-6
 l=1e-6
@@ -242,3 +241,4 @@ body=sub!
 spiceprefix=X
 b=0
 m=1.23}
+C {/home/mmhnbm/frac-n-pll-vco-smacd_2026/schematic/blocks/lc-vco/ihp_4nh_inductor.sym} 2150 270 0 0 {name=x1}

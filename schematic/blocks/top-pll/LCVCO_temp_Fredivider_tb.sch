@@ -1,4 +1,4 @@
-v {xschem version=3.4.8RC file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
@@ -13,7 +13,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1e-14
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -32,14 +32,14 @@ x2=2e-07
 hcursor1_y=0.41963418
 hcursor2_y=0.70549986}
 B 2 640 -1290 1440 -890 {flags=graph
-y1=1.9952089e+09
-y2=2.6767834e+09
+y1=0
+y2=0.01
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=0
+x1=1e-14
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -66,8 +66,8 @@ N -110 -670 -110 -650 {lab=Ibias}
 N 250 -670 290 -670 {lab=Ibias}
 N 390 -790 390 -770 {lab=VDD}
 N 850 -690 870 -690 {lab=OUTd}
-N 620 -690 670 -690 {lab=OUTp}
 N 620 -760 620 -690 {lab=OUTp}
+N 620 -690 670 -690 {lab=OUTp}
 N 580 -690 620 -690 {lab=OUTp}
 C {vsource.sym} -180 -700 0 0 {name=V1 value=1.2 savecurrent=false}
 C {vsource.sym} -50 -700 0 0 {name=V2 value="pulse(0.3 1.0 50n 100n 100n 200n)" savecurrent=false}
@@ -92,26 +92,9 @@ C {devices/vdd.sym} -110 -730 0 0 {name=l12 lab=VDD}
 C {devices/vdd.sym} -110 -650 2 0 {name=l3 lab=Ibias}
 C {iopin.sym} 250 -670 2 0 {name=p5 lab=Ibias
 }
-C {simulator_commands_shown.sym} 940 -840 0 0 {
-name=Libs_Ngspice
-simulator=ngspice
-only_toplevel=false
-value="
-.lib cornerMOSlv.lib mos_tt
-.lib cornerMOShv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.lib cornerCAP.lib cap_typ_stat
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
-"
-      }
 C {lab_pin.sym} 620 -760 0 1 {name=p23 lab=OUTp}
 C {lab_pin.sym} 870 -690 0 1 {name=p7 lab=OUTd}
 C {sg13g2_stdcells/sg13g2_inv_2.sym} 540 -690 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 390 -680 0 0 {name=x1}
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym} 750 -690 0 0 {name=x2}
 C {simulator_commands.sym} 1050 -600 0 0 {name=NGSPICE only_toplevel=true 
 value="
 .model freq_div freq_div
@@ -151,3 +134,18 @@ write LCVCO_freqdiv.raw
 *quit 0
 .endc
 "}
+C {FD/Freq_Div_std.sym} 750 -690 0 0 {name=x3}
+C {/home/mmhnbm/frac-n-pll-vco-smacd_2026/schematic/blocks/lc-vco/LC_VCO.sym} 390 -680 0 0 {name=x1}
+C {simulator_commands_shown.sym} 1170 -820 0 0 {name=Libs_Ngspice
+simulator=ngspice
+only_toplevel=false
+value="tcleval(
+.lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
+.lib $::SG13G2_MODELS/cornerMOShv.lib mos_tt
+.lib $::SG13G2_MODELS/cornerHBT.lib hbt_typ
+.lib $::SG13G2_MODELS/cornerRES.lib res_typ
+.lib $::SG13G2_MODELS/cornerDIO.lib dio_tt
+.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
+.include /home/mmhnbm/.ciel/ciel/ihp-sg13g2/versions/c4b8b4e5e7a05f375cca3815d51b3a37721fbf5c/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
+.global VDD GND
+)"}
