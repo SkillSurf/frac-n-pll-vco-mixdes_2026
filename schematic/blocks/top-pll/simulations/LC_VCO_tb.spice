@@ -38,6 +38,17 @@ fft v(OUTp)
 * Convert FFT magnitude to dB
 let vmag = db(mag(v(OUTp)))
 
+* ---- DETECT LARGEST FFT PEAK (ROBUST METHOD) ----
+let peak_mag = vecmax(vmag)
+
+* Find index using where()
+let peak_index = 0
+let peak_index = index(vmag, peak_mag)
+
+let peak_freq = frequency[peak_index]
+
+echo 'Largest_FFT_Peak_Frequency_Hz:' peak_freq
+echo 'Largest_FFT_Peak_Magnitude_dB:' peak_mag
 * Plot FFT result
 plot vmag xlabel 'Frequency (Hz)' xlimit 0 5G
 

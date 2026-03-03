@@ -268,27 +268,21 @@ value="
 * Inductor / analog models
 .include ./IHP_4nH_Inductor.spice
 
-* to generate following file copy stimuli.test
-* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI), 
-* and press 'Translate'
-.include stimuli_test.cir
-
 .control
-
+  save v(sdata) v(sclk) v(rst) v(dsm_clk) v(F_REF) v(F_VCO) v(vctrl) v(vco_out) v(UP) v(DN)
   * Simulation accuracy options
   .options maxstep=10p reltol=1e-4 abstol=1e-9
 
-  * Save important PLL + DSM nodes
-  save v(sdata) v(sclk) v(rst) v(dsm_clk) v(F_REF) v(F_VCO) v(vctrl) v(vco_out) v(UP) v(DN)
-  set appendwrite
-
  * Run long enough for PLL lock
   tran 20p 5u uic
-
   remzerovec
 
   write pll_dsm_freq_div.raw
 .endc
+* to generate following file copy stimuli.test
+* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI), 
+* and press 'Translate'
+.include stimuli_test.cir
 "}
 C {lc-vco/LC_VCO.sym} 1420 -950 0 0 {name=x3}
 C {charge-pump/CP.sym} 1010 -960 0 0 {name=x1}
@@ -333,40 +327,3 @@ dac_bridge_model=dac_bridge
 out_low=0
 out_high=1.2
 }
-C {simulator_commands.sym} 1910 -580 0 0 {name=SimulatorNGSPICE1
-vhdl_ignore=1
-spice_ignore="tcleval([regexp -nocase \{xyce\} $sim(spice,$sim(spice,default),name)])"
-simulator=ngspice
-only_toplevel=false 
-value="
-.include ./IHP_4nH_Inductor.spice
-.param temp=27
-.control
-<<<<<<< HEAD
-save V(VCTRL) V(OUTp) V(outd) V(sdata) V(sclk) V(en) V(rst) 
-=======
-save v(outd) v(OUTp) v(VCTRL) v(rst) v(sclk) v(sdata) v(en)
->>>>>>> db3dfc6e419474ed53387991c677ebd8f716422a
-.options maxstep=50p reltol=1e-3 abstol=1e-6
-
-*.ic v(OUTp)=0.6
-tran 1p 400n
-remzerovec
-
-* Perform FFT on output
-fft v(OUTp)
-let vmag = db(mag(v(OUTp)))
-plot vmag xlabel 'Frequency (Hz)' xlimit 0 5G
-
-* Save transient waveform to raw file
-write LCVCO_DSM.raw
-
-*quit 0
-.endc
-
-
-* to generate following file copy stimuli.test
-* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI), 
-* and press 'Translate'
-.include stimuli_test.cir
-"}

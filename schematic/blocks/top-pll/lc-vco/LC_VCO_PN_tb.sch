@@ -14,7 +14,7 @@ divy=5
 subdivy=1
 unity=1
 x1=1e-14
-x2=2.9999233e-08
+x2=2e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -73,22 +73,21 @@ value=".lib cornerMOSlv.lib mos_tt
 .lib $::SG13G2_MODELS/cornerCAP.lib cap_typ_stat
 "}
 C {lc-vco/LC_VCO.sym} -240 -50 0 0 {name=x1}
-C {devices/code_shown.sym} 270 -70 0 0 {name=NGSPICE1 only_toplevel=true 
+C {devices/code_shown.sym} 260 -80 0 0 {name=NGSPICE1 only_toplevel=true 
 value="
 .include ./IHP_4nH_Inductor.spice
 .param temp=27
-.control
 .ic v(OUTp)=0.6
-
-.options maxstep=10n reltol=1e-3 abstol=1e-6
-save v(OUTp) V(CTRL)
-tran 1p 0.2u UIC
+.control
+.options maxstep=1p reltol=1e-4 abstol=1e-8
+save v(OUTp)
+tran 1p 20u UIC
 
 * Save transient waveform to raw file
 write LC_VCO_tb.raw
 
 * Plot time-domain waveform
-plot v(OUTp) xlimit 5n 60n
+plot v(OUTp) xlabel 'Time (s)' ylabel 'Voltage (V)' xlimit 5n 60n
 
 * Perform FFT on output
 fft v(OUTp)
@@ -96,22 +95,10 @@ fft v(OUTp)
 * Convert FFT magnitude to dB
 let vmag = db(mag(v(OUTp)))
 
-* ---- DETECT LARGEST FFT PEAK (ROBUST METHOD) ----
-let peak_mag = vecmax(vmag)
-
-* Find index using where()
-let peak_index = 0
-let peak_index = index(vmag, peak_mag)
-
-let peak_freq = frequency[peak_index]
-
-echo 'Largest_FFT_Peak_Frequency_Hz:' peak_freq
-echo 'Largest_FFT_Peak_Magnitude_dB:' peak_mag
 * Plot FFT result
-plot vmag xlabel 'Frequency (Hz)' xlimit 0 5G
+plot vmag xlabel 'Frequency (Hz)' ylabel 'Magnitude (dB)' xlimit 0 5G
 
-* Save FFT data to text file
-wrdata fft_output(VCTRL=0.7).txt vmag
-
+* ---- EXPORT FFT DATA ----
+wrdata fft_output.txt frequency vmag
 .endc
 "}
