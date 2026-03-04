@@ -5,9 +5,55 @@ V {}
 S {}
 F {}
 E {}
-B 2 1600 -800 2400 -400 {flags=graph
+B 2 2070 -1110 2870 -710 {flags=graph
 y1=-0.023
 y2=1.3
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=2.5e-6
+x2=3e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=0
+logy=0
+autoload=1
+hilight_wave=-1
+color="7 12"
+node="clk_out
+x1.dsm_out"}
+B 2 470 -1510 1270 -1110 {flags=graph
+y1=-0.38082238
+y2=1.8658542
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x2=2.8e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+dataset=-1
+unitx=1
+logx=0
+logy=0
+hilight_wave=-1
+autoload=0
+sim_type=tran
+color=12
+node=clk_in
+x1=2.5e-6}
+B 2 1270 -1510 2070 -1110 {flags=graph
+y1=-0.025
+y2=1.2
 ypos1=0
 ypos2=2
 divy=5
@@ -23,52 +69,8 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-autoload=1
-hilight_wave=-1
 color=4
-node=clk_out}
-B 2 470 -1510 1270 -1110 {flags=graph
-y1=-0.38082238
-y2=1.8658542
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=2e-13
-x2=5e-06
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-dataset=-1
-unitx=1
-logx=0
-logy=0
-hilight_wave=-1
-autoload=0
-sim_type=tran
-color=4
-node=clk_in}
-B 2 1270 -1510 2070 -1110 {flags=graph
-y1=-0.025
-y2=1.2
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=0
-x2=3e-07
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-dataset=-1
-unitx=1
-logx=0
-logy=0
-}
+node=x1.vctrl}
 B 2 2070 -1510 2870 -1110 {flags=graph
 y1=-0.016
 y2=1.3
@@ -77,8 +79,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=2e-13
-x2=5e-06
+x1=2.5e-6
+x2=3.5e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -93,16 +95,16 @@ hcursor2_y=0.47137288
 color="4 7"
 node="x1.dn
 x1.up"}
-B 2 910 -710 2070 -500 {flags=graph
+B 2 910 -520 2070 -310 {flags=graph
 y1=0
 y2=3
-ypos1=0.15
-ypos2=3.15
+ypos1=0
+ypos2=3
 divy=5
 subdivy=1
 unity=1
-x1=0
-x2=3e-07
+x1=2e-13
+x2=5e-06
 
 subdivx=4
 xlabmag=1.2
@@ -115,12 +117,13 @@ logy=0
 digital=1
 divx=4
 legend=1
-color="7 12 11 10 4"
-node="rst
-sclk
-sdata
-f_vco
-vco_out"}
+color="12 11 15 10 7 9"
+node="x1.rst
+x1.en
+x1.sdata
+x1.sclk
+clk_out
+x1.dsm_out"}
 B 2 2070 -710 2870 -310 {flags=graph
 y1=-0.023
 y2=1.3
@@ -129,8 +132,7 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=5.8319344e-08
-x2=5.0583191e-06
+x2=3e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -141,9 +143,10 @@ logx=0
 logy=0
 autoload=1
 hilight_wave=-1
-color="5 12"
-node="vco_out
-f_vco"}
+color="12 7"
+node="clk_in
+x1.dsm_out"
+x1=2.5e-6}
 P 4 1 2810 -1370 {}
 N 610 -990 610 -930 {lab=VDD}
 N 610 -870 610 -830 {lab=GND}
@@ -166,12 +169,12 @@ C {devices/vdd.sym} 880 -1020 0 0 {name=l12 lab=VDD}
 C {vsource.sym} 880 -890 0 1 {name=Vfref value="0 pulse(0 1.2 0n 0.1n 0.1n 5n 10n)" savecurrent=false}
 C {lab_pin.sym} 880 -930 0 0 {name=p11 sig_type=std_logic lab=CLK_IN}
 C {gnd.sym} 880 -830 0 0 {name=l10 lab=GND}
-C {launcher.sym} 1830 -970 0 0 {name=h1
+C {launcher.sym} 1660 -790 0 0 {name=h1
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/pll_top.raw tran
 "
 }
-C {launcher.sym} 1830 -930 0 0 {name=h4
+C {launcher.sym} 1660 -750 0 0 {name=h4
 descr=SimulateNGSPICE
 tclcommand="
 xschem netlist; 
@@ -187,52 +190,7 @@ C {gnd.sym} 1090 -820 0 0 {name=l7 lab=GND}
 C {vdd.sym} 1090 -1030 0 0 {name=l3 lab=VDD}
 C {pll.sym} 1130 -920 0 0 {name=x1}
 C {opin.sym} 1270 -940 0 0 {name=p6 lab=CLK_OUT}
-C {simulator_commands.sym} 1580 -970 0 0 {name=SimulatorNGSPICE
-vhdl_ignore=1
-spice_ignore="tcleval([regexp -nocase \{xyce\} $sim(spice,$sim(spice,default),name)])"
-simulator=ngspice
-only_toplevel=false 
-value="
-*****************************************************
-* PLL + DSM Frequency Divider Testbench (Optimized)
-*****************************************************
-
-.option temp=27
-.param VDD=1.2
-
-* ==============================
-* Include Models & Stimuli
-* ==============================
-.include ./IHP_4nH_Inductor.spice
-.include stimuli_test.cir
-
-* ==============================
-* Simulation Options (Optimized for Speed & Stability)
-* ==============================
-* gear method improves stability for long oscillator runs
-* reltol=1e-3 prevents the simulator from bogging down on microscopic errors
-.options reltol=1e-3 abstol=1e-9 vntol=1e-6 method=gear
-
-* ==============================
-* Initial Conditions (Speed Hack)
-* ==============================
-* Uncomment the line below to pre-charge the loop filter to your expected 
-* V_tune voltage (e.g., 0.6V). This skips the massive initial frequency jump.
-* .ic v(x2.vctrl)=0.6
-
-.control
-  save all
-  *save v(sdata) v(sclk) v(rst) v(en) v(UP) v(DN) v(VCTRL) v(CLK_IN) v(DSM_OUT) v(CLK_OUT) 
-  * Simulation accuracy options
-  .options maxstep=10p reltol=1e-4 abstol=1e-9
-
- * Run long enough for PLL lock
-  tran 20p 5u uic
-  remzerovec
-  write pll_top.raw 
-.endc
-"}
-C {simulator_commands.sym} 1460 -970 0 0 {
+C {simulator_commands.sym} 1480 -960 0 0 {
 name=Libs_Ngspice1
 simulator=ngspice
 only_toplevel=false
@@ -252,4 +210,48 @@ value="
 .param CP_P_W = 30u
 .param CP_N_M = 1
 .param C_CP = 400p
+"}
+C {simulator_commands.sym} 1660 -960 0 0 {name=SimulatorNGSPICE
+vhdl_ignore=1
+spice_ignore="tcleval([regexp -nocase \{xyce\} $sim(spice,$sim(spice,default),name)])"
+simulator=ngspice
+only_toplevel=false 
+value="
+*****************************************************
+* PLL + DSM Frequency Divider Testbench
+*****************************************************
+
+.option temp = 27
+.param VDD = 1.2
+
+* ==============================
+* Include Models
+* ==============================
+
+* Inductor / analog models
+.include ./IHP_4nH_Inductor.spice
+
+.control
+  *save all
+  save x1.up x1.en x1.sdata x1.rst x1.sclk x1.dn x1.vctrl x1.clk_in x1.clk_out x1.dsm_out clk_in clk_out outn
+  * Simulation accuracy options
+  .options maxstep=10p reltol=1e-4 abstol=1e-9
+
+ * Run long enough for PLL lock
+  tran 20p 5u uic
+  remzerovec
+  write pll_top.raw 
+.endc
+* to generate following file copy stimuli.test
+* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI), 
+* and press 'Translate'
+.include stimuli_test.cir
+"}
+C {code.sym} 1860 -960 0 0 {name=MEASURE only_toplevel=false 
+value="
+.meas tran tperiod_in TRIG v(clk_in) VAL=0.6 FALL=1 TARG v(clk_in) VAL=0.6 FALL=2
+.meas tran ref_freq PARAM = '1e-6/tperiod_in'
+
+.meas tran tperiod_out TRIG v(clk_out) VAL=0.6 FALL=1 TARG v(clk_out) VAL=0.6 FALL=2
+.meas tran pll_freq PARAM = '1e-6/tperiod_out'
 "}
