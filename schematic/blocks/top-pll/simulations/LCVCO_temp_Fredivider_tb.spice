@@ -6,11 +6,11 @@
 *.iopin GND
 *.iopin Ibias
 x5 OUTp net1 VDD GND sg13g2_inv_2
-x1 VDD net1 OUTn Ibias VCTRL GND LC_VCO
 x2 OUTp OUTd Freq_Div_std
 V1 VDD GND 1.2
 V2 VCTRL GND pulse(0.3 1.0 50n 100n 100n 200n)
 I0 VDD Ibias 50u
+x1 VDD net1 OUTn Ibias VCTRL GND LC_VCO
 **** begin user architecture code
 
 
@@ -69,9 +69,22 @@ write LCVCO_freqdiv.raw
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  lc-vco/LC_VCO.sym # of pins=6
-** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/lc-vco/LC_VCO.sym
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/lc-vco/LC_VCO.sch
+* expanding   symbol:  FD/Freq_Div_std.sym # of pins=2
+** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sch
+.subckt Freq_Div_std F_IN F_OUT
+*.opin F_OUT
+*.ipin F_IN
+x6 net3 net1 F_IN net1 VDD VDD GND sg13g2_dfrbp_1
+x5 net4 net2 net3 net2 VDD VDD GND sg13g2_dfrbp_2
+x7 net6 net5 net4 net5 VDD VDD GND sg13g2_dfrbp_2
+x8 F_OUT net7 net6 net7 VDD VDD GND sg13g2_dfrbp_2
+.ends
+
+
+* expanding   symbol:  /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym # of pins=6
+** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sch
 .subckt LC_VCO VDD OUTp OUTn Ibias VCTRL GND
 *.iopin VDD
 *.opin OUTp
@@ -90,19 +103,6 @@ XMv2 OUTp VCTRL OUTp VDD sg13_lv_pmos w=4u l=4u ng=1 m=22
 XMv1 OUTn VCTRL OUTn VDD sg13_lv_pmos w=4u l=4u ng=1 m=22
 XR1 OUTn OUTp sub! rhigh w=1e-6 l=1e-6 m=1.23 b=0
 x1 OUTn OUTp ihp_4nh_inductor
-.ends
-
-
-* expanding   symbol:  FD/Freq_Div_std.sym # of pins=2
-** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sym
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/FD/Freq_Div_std.sch
-.subckt Freq_Div_std F_IN F_OUT
-*.opin F_OUT
-*.ipin F_IN
-x6 net3 net1 F_IN net1 VDD VDD GND sg13g2_dfrbp_1
-x5 net4 net2 net3 net2 VDD VDD GND sg13g2_dfrbp_2
-x7 net6 net5 net4 net5 VDD VDD GND sg13g2_dfrbp_2
-x8 F_OUT net7 net6 net7 VDD VDD GND sg13g2_dfrbp_2
 .ends
 
 .GLOBAL GND

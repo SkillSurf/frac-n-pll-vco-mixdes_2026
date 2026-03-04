@@ -27,9 +27,6 @@ x2 VDD UP CTRL DN GND Ibias CP
 .param C_CP = 10f
 
 
- .lib cornerMOSlv.lib mos_tt
-.lib /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerCAP.lib cap_typ_stat
-
 
 
 
@@ -58,6 +55,9 @@ end
 quit 0
 .endc
 
+
+
+.lib /foss/pdks/ihp-sg13g2/libs.tech/ngspice/models/cornerCAP.lib cap_typ
 
 **** end user architecture code
 **.ends
@@ -108,4 +108,5 @@ XR3 net6 net5 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
 .ends
 
 .GLOBAL GND
+.GLOBAL VDD
 .end

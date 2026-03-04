@@ -28,7 +28,7 @@ color="5 4 12"
 node="Outp
 outd
 Vctrl"
-x2=2e-07
+x2=4e-08
 hcursor1_y=0.41963418
 hcursor2_y=0.70549986}
 B 2 640 -1290 1440 -890 {flags=graph
@@ -52,7 +52,7 @@ autoload=1
 sim_type=tran
 color=21
 node=freq_vector
-x2=2e-07
+x2=4e-08
 hcursor1_y=2.2597346e+09
 hcursor2_y=2.5045169e+09}
 N 500 -670 550 -670 {lab=OUTn}
@@ -125,7 +125,6 @@ write LCVCO_freqdiv.raw
 *quit 0
 .endc
 "}
-C {lc-vco/LC_VCO.sym} 390 -680 0 0 {name=x1}
 C {FD/Freq_Div_std.sym} 750 -690 0 0 {name=x2}
 C {vsource.sym} -160 -720 0 0 {name=V1 value=1.2 savecurrent=false}
 C {vsource.sym} -30 -720 0 0 {name=V2 value="pulse(0.3 1.0 50n 100n 100n 200n)" savecurrent=false}
@@ -151,3 +150,4 @@ value="
 
 "
       }
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 390 -680 0 0 {name=x1}

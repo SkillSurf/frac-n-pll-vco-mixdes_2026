@@ -276,7 +276,6 @@ value="
  * Run long enough for PLL lock
   tran 20p 5u uic
   remzerovec
-
   write pll_dsm_freq_div.raw
 .endc
 * to generate following file copy stimuli.test
@@ -284,8 +283,6 @@ value="
 * and press 'Translate'
 .include stimuli_test.cir
 "}
-C {lc-vco/LC_VCO.sym} 1420 -950 0 0 {name=x3}
-C {charge-pump/CP.sym} 1010 -960 0 0 {name=x1}
 C {phase-freq-detector/PFD_std.sym} 670 -950 0 0 {name=x2}
 C {dsm/xschem/adc_bridge1.sym} 1450 -740 0 1 {name=A1
 adc=adc1
@@ -327,3 +324,5 @@ dac_bridge_model=dac_bridge
 out_low=0
 out_high=1.2
 }
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP.sym} 1010 -960 0 0 {name=x1}
+C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sym} 1420 -950 0 0 {name=x3}

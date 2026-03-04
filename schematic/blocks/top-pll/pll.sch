@@ -19,23 +19,23 @@ N 820 -970 860 -970 {lab=UP}
 N 820 -930 860 -930 {lab=DN}
 N 670 -1060 670 -1010 {lab=VDD}
 N 1010 -1060 1010 -1020 {lab=VDD}
-N 500 -960 640 -960 {lab=F_REF}
+N 500 -960 640 -960 {lab=CLK_IN}
 N 920 -930 920 -870 {lab=Ibias}
 N 920 -930 940 -930 {lab=Ibias}
-N 670 -890 670 -850 {lab=#net1}
+N 670 -890 670 -850 {lab=GND}
 N 1010 -900 1010 -860 {lab=GND}
 N 1420 -860 1420 -810 {lab=GND}
 N 600 -940 600 -700 {lab=F_VCO}
 N 600 -940 640 -940 {lab=F_VCO}
 N 600 -700 1110 -700 {lab=F_VCO}
-N 1360 -740 1420 -740 {lab=#net2}
-N 1360 -720 1420 -720 {lab=#net3}
-N 1360 -700 1420 -700 {lab=#net4}
-N 1360 -680 1420 -680 {lab=#net5}
-N 1360 -660 1420 -660 {lab=#net6}
-N 1170 -700 1200 -700 {lab=#net7}
-N 1480 -740 1660 -740 {lab=F_OUT}
-N 1660 -960 1660 -740 {lab=F_OUT}
+N 1360 -740 1420 -740 {lab=#net1}
+N 1360 -720 1420 -720 {lab=#net2}
+N 1360 -700 1420 -700 {lab=#net3}
+N 1360 -680 1420 -680 {lab=#net4}
+N 1360 -660 1420 -660 {lab=#net5}
+N 1170 -700 1200 -700 {lab=#net6}
+N 1480 -740 1660 -740 {lab=CLK_OUT}
+N 1660 -960 1660 -740 {lab=CLK_OUT}
 N 1480 -720 1530 -720 {lab=rst}
 N 1480 -700 1530 -700 {lab=sclk}
 N 1480 -680 1530 -680 {lab=sdata}
@@ -46,8 +46,8 @@ N 1650 -700 1690 -700 {lab=sclk}
 N 1650 -720 1690 -720 {lab=rst}
 N 1630 -560 1710 -560 {lab=GND}
 N 1630 -600 1710 -600 {lab=VDD}
-N 1660 -960 1730 -960 {lab=F_OUT}
-N 1610 -960 1660 -960 {lab=F_OUT}
+N 1660 -960 1730 -960 {lab=CLK_OUT}
+N 1610 -960 1660 -960 {lab=CLK_OUT}
 N 1230 -940 1320 -940 {lab=IbiasVCO}
 N 860 -930 860 -900 {lab=DN}
 C {lab_pin.sym} 860 -1020 0 1 {name=p16 lab=UP}
@@ -115,14 +115,14 @@ C {noconn.sym} 1690 -720 2 0 {name=l9}
 C {noconn.sym} 1690 -700 2 0 {name=l13}
 C {noconn.sym} 1690 -680 2 0 {name=l14}
 C {noconn.sym} 1690 -660 2 0 {name=l15}
-C {iopin.sym} 1710 -560 0 0 {name=p62 lab=GND}
+C {iopin.sym} 1710 -560 0 0 {name=p62 lab=VSS}
 C {iopin.sym} 1710 -600 0 0 {name=p66 lab=VDD
 }
 C {lab_pin.sym} 1630 -600 0 0 {name=p27 sig_type=std_logic lab=VDD
 }
 C {lab_pin.sym} 1630 -560 0 0 {name=p28 sig_type=std_logic lab=GND}
-C {ipin.sym} 500 -960 0 0 {name=p29 lab=F_REF}
-C {opin.sym} 1730 -960 0 0 {name=p6 lab=F_OUT}
+C {ipin.sym} 500 -960 0 0 {name=p29 lab=CLK_IN}
+C {opin.sym} 1730 -960 0 0 {name=p6 lab=CLK_OUT}
 C {ipin.sym} 1230 -940 0 0 {name=p7 lab=IbiasVCO}
 C {ipin.sym} 920 -870 0 0 {name=p1 lab=Ibias}
 C {lab_pin.sym} 670 -850 0 0 {name=p11 sig_type=std_logic lab=GND}
