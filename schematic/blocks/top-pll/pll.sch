@@ -11,9 +11,9 @@ N 1420 -1060 1420 -1040 {lab=VDD}
 N 860 -970 940 -970 {lab=UP}
 N 860 -950 860 -930 {lab=DN}
 N 860 -950 940 -950 {lab=DN}
-N 1210 -960 1320 -960 {lab=vctrl}
-N 1210 -1000 1210 -960 {lab=vctrl}
-N 1110 -960 1210 -960 {lab=vctrl}
+N 1210 -960 1320 -960 {lab=VCTRL}
+N 1210 -1000 1210 -960 {lab=VCTRL}
+N 1110 -960 1210 -960 {lab=VCTRL}
 N 860 -1020 860 -970 {lab=UP}
 N 820 -970 860 -970 {lab=UP}
 N 820 -930 860 -930 {lab=DN}
@@ -25,9 +25,9 @@ N 920 -930 940 -930 {lab=Ibias}
 N 670 -890 670 -850 {lab=GND}
 N 1010 -900 1010 -860 {lab=GND}
 N 1420 -860 1420 -810 {lab=GND}
-N 600 -940 600 -700 {lab=F_VCO}
-N 600 -940 640 -940 {lab=F_VCO}
-N 600 -700 1110 -700 {lab=F_VCO}
+N 600 -940 600 -700 {lab=DSM_OUT}
+N 600 -940 640 -940 {lab=DSM_OUT}
+N 600 -700 1110 -700 {lab=DSM_OUT}
 N 1360 -740 1420 -740 {lab=#net1}
 N 1360 -720 1420 -720 {lab=#net2}
 N 1360 -700 1420 -700 {lab=#net3}
@@ -44,19 +44,19 @@ N 1650 -660 1690 -660 {lab=en}
 N 1650 -680 1690 -680 {lab=sdata}
 N 1650 -700 1690 -700 {lab=sclk}
 N 1650 -720 1690 -720 {lab=rst}
-N 1630 -560 1710 -560 {lab=GND}
+N 1630 -560 1710 -560 {lab=VSS}
 N 1630 -600 1710 -600 {lab=VDD}
 N 1660 -960 1730 -960 {lab=CLK_OUT}
 N 1610 -960 1660 -960 {lab=CLK_OUT}
 N 1230 -940 1320 -940 {lab=IbiasVCO}
 N 860 -930 860 -900 {lab=DN}
 C {lab_pin.sym} 860 -1020 0 1 {name=p16 lab=UP}
-C {lab_pin.sym} 600 -880 0 0 {name=p18 lab=F_VCO}
+C {lab_pin.sym} 600 -880 0 0 {name=p18 lab=DSM_OUT}
 C {lab_pin.sym} 860 -900 0 0 {name=p19 lab=DN}
 C {opin.sym} 1580 -940 0 0 {name=p24 lab=OUTn
 }
 C {sg13g2_stdcells/sg13g2_inv_2.sym} 1570 -960 0 0 {name=x5 VDD=VDD VSS=GND prefix=sg13g2_ }
-C {lab_pin.sym} 1210 -1000 0 1 {name=p10 lab=vctrl}
+C {lab_pin.sym} 1210 -1000 0 1 {name=p10 lab=VCTRL}
 C {vdd.sym} 670 -1060 0 0 {name=l6 lab=VDD}
 C {vdd.sym} 1010 -1060 0 0 {name=l2 lab=VDD}
 C {vdd.sym} 1420 -1060 0 0 {name=l4 lab=VDD}
@@ -115,7 +115,7 @@ C {noconn.sym} 1690 -720 2 0 {name=l9}
 C {noconn.sym} 1690 -700 2 0 {name=l13}
 C {noconn.sym} 1690 -680 2 0 {name=l14}
 C {noconn.sym} 1690 -660 2 0 {name=l15}
-C {iopin.sym} 1710 -560 0 0 {name=p62 lab=VSS}
+C {iopin.sym} 1710 -560 0 0 {name=p62 lab=GND}
 C {iopin.sym} 1710 -600 0 0 {name=p66 lab=VDD
 }
 C {lab_pin.sym} 1630 -600 0 0 {name=p27 sig_type=std_logic lab=VDD

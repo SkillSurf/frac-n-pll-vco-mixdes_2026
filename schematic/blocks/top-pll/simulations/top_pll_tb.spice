@@ -1,33 +1,12 @@
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll_dsm_freqdivider_tb.sch
-**.subckt pll_dsm_freqdivider_tb OUTn CLK_OUT
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/top_pll_tb.sch
+**.subckt top_pll_tb OUTn CLK_OUT
 *.opin OUTn
 *.opin CLK_OUT
 V1 VDD GND 1.2
-I0 VDD IbiasVCO 50u
+I0 VDD net1 50u
 Vfref CLK_IN GND 0 pulse(0 1.2 0n 0.1n 0.1n 5n 10n)
-I1 Ibias GND 10m
-x5 CLK_OUT net7 VDD GND sg13g2_inv_2
-* noconn rst
-* noconn sclk
-* noconn sdata
-* noconn en
-x2 VDD UP CLK_IN DSM_OUT DN GND PFD_std
-A1 [ CLK_OUT ] [ net1 ] adc1
-.model adc1 adc_bridge in_low=0.4 in_high=0.6
-A2 [ rst ] [ net2 ] adc1
-.model adc1 adc_bridge in_low=0.4 in_high=0.6
-A3 [ sclk ] [ net3 ] adc1
-.model adc1 adc_bridge in_low=0.4 in_high=0.6
-A4 [ sdata ] [ net4 ] adc1
-.model adc1 adc_bridge in_low=0.4 in_high=0.6
-A5 [ en ] [ net5 ] adc1
-.model adc1 adc_bridge in_low=0.4 in_high=0.6
-adut [ net1 net2 net3 net4 net5 ] [ net6 ] null dut
-.model dut d_cosim simulation=./../dsm_and_freq_divider.so
-A6 [ net6 ] [ DSM_OUT ] dac1
-.model dac1 dac_bridge out_low=0 out_high=1.2
-x1 VDD UP VCTRL DN GND Ibias CP
-x3 VDD net7 OUTn IbiasVCO VCTRL GND LC_VCO
+I1 net2 GND 10m
+x1 CLK_OUT CLK_IN net1 OUTn net2 VDD GND pll
 **** begin user architecture code
 
 
@@ -47,14 +26,15 @@ x3 VDD net7 OUTn IbiasVCO VCTRL GND LC_VCO
 .include ./IHP_4nH_Inductor.spice
 
 .control
-  save v(sdata) v(sclk) v(rst) v(en) v(UP) v(DN) v(VCTRL) v(CLK_IN) v(DSM_OUT) v(CLK_OUT)
+  save all
+  *save v(sdata) v(sclk) v(rst) v(en) v(UP) v(DN) v(VCTRL) v(CLK_IN) v(DSM_OUT) v(CLK_OUT)
   * Simulation accuracy options
   .options maxstep=10p reltol=1e-4 abstol=1e-9
 
  * Run long enough for PLL lock
   tran 20p 5u uic
   remzerovec
-  write pll_dsm_div.raw
+  write pll_top.raw
 .endc
 * to generate following file copy stimuli.test
 * to the simulation directory and run simulation -> Utile Stimuli Editor (GUI),
@@ -85,20 +65,39 @@ x3 VDD net7 OUTn IbiasVCO VCTRL GND LC_VCO
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  phase-freq-detector/PFD_std.sym # of pins=6
-** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/phase-freq-detector/PFD_std.sym
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/phase-freq-detector/PFD_std.sch
-.subckt PFD_std VDD UP F_REF F_VCO DN GND
-*.opin UP
-*.ipin F_REF
-*.ipin VDD
-*.ipin GND
-*.opin DN
-*.ipin F_VCO
-x1 net1 net2 F_REF VDD RST_N VDD GND sg13g2_dfrbp_2
-x2 DN net3 F_VCO VDD RST_N VDD GND sg13g2_dfrbp_2
-x3 RST_N net1 DN VDD GND sg13g2_nand2_2
-x4 UP net1 VDD GND sg13g2_inv_2
+* expanding   symbol:  pll.sym # of pins=7
+** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll.sym
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll.sch
+.subckt pll CLK_OUT CLK_IN IbiasVCO OUTn Ibias VDD GND
+*.opin OUTn
+*.iopin GND
+*.iopin VDD
+*.ipin CLK_IN
+*.opin CLK_OUT
+*.ipin IbiasVCO
+*.ipin Ibias
+x5 CLK_OUT net7 VDD GND sg13g2_inv_2
+x1 VDD UP VCTRL DN GND Ibias CP
+x2 VDD UP CLK_IN DSM_OUT DN GND PFD_std
+x3 VDD net7 OUTn IbiasVCO VCTRL GND LC_VCO
+adut [ net1 net2 net3 net4 net5 ] [ net6 ] null dut
+.model dut d_cosim simulation=./../dsm_and_freq_divider.so
+A1 [ CLK_OUT ] [ net1 ] adc1
+.model adc1 adc_bridge in_low=0.4 in_high=0.6
+A2 [ rst ] [ net2 ] adc1
+.model adc1 adc_bridge in_low=0.4 in_high=0.6
+A3 [ sclk ] [ net3 ] adc1
+.model adc1 adc_bridge in_low=0.4 in_high=0.6
+A4 [ sdata ] [ net4 ] adc1
+.model adc1 adc_bridge in_low=0.4 in_high=0.6
+A5 [ en ] [ net5 ] adc1
+.model adc1 adc_bridge in_low=0.4 in_high=0.6
+A6 [ net6 ] [ DSM_OUT ] dac1
+.model dac1 dac_bridge out_low=0 out_high=1.2
+* noconn rst
+* noconn sclk
+* noconn sdata
+* noconn en
 .ends
 
 
@@ -127,6 +126,24 @@ XR1 Ibias Vbp sub! rsil w=0.5e-6 l=0.5e-6 m=1 b=0
 XM11 VDD net5 CTRL GND sg13_lv_nmos w=100u l=0.5u ng=20 m=1
 XR2 GND CTRL sub! rsil w=0.5e-6 l=0.5e-4 m=1 b=0
 XR3 net6 net5 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+.ends
+
+
+* expanding   symbol:  /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym # of
+*+ pins=6
+** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sym
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sch
+.subckt PFD_std VDD UP F_REF F_VCO DN GND
+*.opin UP
+*.ipin F_REF
+*.ipin VDD
+*.ipin GND
+*.opin DN
+*.ipin F_VCO
+x1 net1 net2 F_REF VDD RST_N VDD GND sg13g2_dfrbp_2
+x2 DN net3 F_VCO VDD RST_N VDD GND sg13g2_dfrbp_2
+x3 RST_N net1 DN VDD GND sg13g2_nand2_2
+x4 UP net1 VDD GND sg13g2_inv_2
 .ends
 
 
