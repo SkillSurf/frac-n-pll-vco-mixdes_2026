@@ -3,7 +3,7 @@
 V1 VDD GND 1.2
 I0 VDD Vbias2 50u
 Vfref CLK_IN GND 0 pulse(0 1.2 0n 1n 1n 50n 100n)
-I1 Vbias1 GND 200u
+I1 Vbias1 GND 50u
 x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 **** begin user architecture code
 
@@ -34,16 +34,19 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 * ==============================
 * Uncomment the line below to pre-charge the loop filter to your expected
 * V_tune voltage (e.g., 0.6V). This skips the massive initial frequency jump.
-* .ic v(x2.vctrl)=0.6
+.ic v(x2.vctrl)=0.606
+.ic v(x2.x1.ctrl1)=0.606
+.ic v(x2.x1.ctrl2)=0.606
 
 .control
   * CRITICAL: Save ONLY essential low-frequency signals.
   * Saving 2.4GHz nodes for 100us will crash your memory.
   save x2.vctrl x2.up x2.dn x2.dsm_out clk_out clk_in vbias1 vbias2
+  *save all
 
 
   * 20p defines the step to resolve the 2.4 GHz edges without forcing a maxstep.
-  tran 30p 0.1u uic
+  tran 30p 40u uic
 
   remzerovec
   write pll_top.raw
@@ -67,7 +70,7 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 .param CP_P_L = 0.5u
 .param CP_P_W = 30u
 .param CP_N_M = 1
-.param C_CP = 10p
+.param C_CP = 1000p
 
 
 **** end user architecture code
@@ -123,18 +126,18 @@ XM2 Vbn Vbn net2 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM1 net2 VDD GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM3 Vbn Vbp net1 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM4 net1 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM7 Vbp Vbp net6 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM8 net6 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM5 net5 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
+XM7 Vbp Vbp net5 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM8 net5 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM5 CTRL1 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM6 net3 DN GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
-XM9 net5 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM9 CTRL1 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM10 net4 UP VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XC1 CTRL GND cparasitic C='C_CP'
-XR1 Ibias Vbp sub! rsil w=0.5e-6 l=0.5e-6 m=1 b=0
-XR3 net5 CTRL sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
-XC2 net7 GND cparasitic C='C_CP'
-XR2 net5 net7 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
-XC3 net5 GND cparasitic C='C_CP'
+XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC2 CTRL2 GND cparasitic C='C_CP'
+XR2 CTRL1 CTRL2 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC3 CTRL1 GND cparasitic C='C_CP'
+R1 Vbp Ibias 0 m=1
 .ends
 
 

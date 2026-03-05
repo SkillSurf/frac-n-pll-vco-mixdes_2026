@@ -32,7 +32,7 @@ N 790 -560 790 -500 {lab=Vbn}
 N 780 -500 790 -500 {lab=Vbn}
 N 740 -560 790 -560 {lab=Vbn}
 N 430 -860 430 -800 {lab=VDD}
-N 430 -610 430 -560 {lab=Vbp}
+N 430 -610 430 -510 {lab=Vbp}
 N 1130 -360 1160 -360 {lab=DN}
 N 1200 -330 1200 -290 {lab=GND}
 N 1200 -470 1200 -390 {lab=#net3}
@@ -44,7 +44,7 @@ N 1130 -500 1160 -500 {lab=Vbn}
 N 1120 -670 1160 -670 {lab=Vbp}
 N 1130 -770 1160 -770 {lab=UP}
 N 1580 -590 1790 -590 {lab=CTRL}
-N 1200 -590 1200 -530 {lab=#net5}
+N 1200 -590 1200 -530 {lab=CTRL1}
 N 470 -770 510 -770 {lab=GND}
 N 390 -770 430 -770 {lab=VDD}
 N 390 -670 430 -670 {lab=VDD}
@@ -53,7 +53,7 @@ N 1200 -670 1240 -670 {lab=VDD}
 N 690 -770 740 -770 {lab=VDD}
 N 690 -670 740 -670 {lab=VDD}
 N 780 -770 820 -770 {lab=GND}
-N 430 -740 430 -700 {lab=#net6}
+N 430 -740 430 -700 {lab=#net5}
 N 490 -670 510 -670 {lab=Vbp}
 N 1580 -390 1580 -290 {lab=GND}
 N 1580 -590 1580 -450 {lab=CTRL}
@@ -64,17 +64,17 @@ N 470 -670 490 -670 {lab=Vbp}
 N 430 -610 490 -610 {lab=Vbp}
 N 430 -640 430 -610 {lab=Vbp}
 N 740 -640 740 -560 {lab=Vbn}
-N 430 -500 430 -450 {lab=Ibias}
 N 1550 -590 1580 -590 {lab=CTRL}
-N 1430 -590 1490 -590 {lab=#net5}
-N 1200 -640 1200 -590 {lab=#net5}
+N 1430 -590 1490 -590 {lab=CTRL1}
+N 1200 -640 1200 -590 {lab=CTRL1}
 N 1330 -390 1330 -290 {lab=GND}
-N 1330 -590 1330 -450 {lab=#net5}
-N 1200 -590 1330 -590 {lab=#net5}
-N 1430 -590 1430 -560 {lab=#net5}
-N 1330 -590 1430 -590 {lab=#net5}
-N 1430 -500 1430 -450 {lab=#net7}
+N 1330 -590 1330 -450 {lab=CTRL1}
+N 1200 -590 1330 -590 {lab=CTRL1}
+N 1430 -590 1430 -560 {lab=CTRL1}
+N 1330 -590 1430 -590 {lab=CTRL1}
+N 1430 -500 1430 -450 {lab=CTRL2}
 N 1430 -390 1430 -290 {lab=GND}
+N 430 -450 430 -410 {lab=Ibias}
 C {opin.sym} 180 -210 0 0 {name=p4 lab=CTRL}
 C {ipin.sym} 110 -220 0 0 {name=p12 lab=UP}
 C {ipin.sym} 110 -250 0 0 {name=p1 lab=VDD}
@@ -117,7 +117,7 @@ m=\{CP_P_M\}
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {lab_pin.sym} 430 -450 0 1 {name=p18 sig_type=std_logic lab=Ibias}
+C {lab_pin.sym} 430 -410 0 1 {name=p18 sig_type=std_logic lab=Ibias}
 C {sg13g2_pr/sg13_lv_pmos.sym} 450 -670 0 1 {name=M7
 l=\{CP_P_L\}
 w=\{CP_P_W\}
@@ -190,15 +190,6 @@ C {lab_pin.sym} 740 -720 0 1 {name=p35 sig_type=std_logic lab=net1}
 C {lab_pin.sym} 740 -440 0 1 {name=p36 sig_type=std_logic lab=net2}
 C {sg13g2_pr/annotate_fet_params.sym} 890 -940 0 0 {name=annot1 ref=M3}
 C {sg13g2_pr/annotate_fet_params.sym} 900 -380 0 0 {name=annot2 ref=M2}
-C {sg13g2_pr/rsil.sym} 430 -530 0 0 {name=R1
-w=0.5e-6
-l=0.5e-6
-model=rsil
-body=sub!
-spiceprefix=X
-b=0
-m=1
-}
 C {sg13g2_pr/annotate_fet_params.sym} 1590 -942.105189945283 0 0 {name=annot3 ref=M9}
 C {sg13g2_pr/annotate_fet_params.sym} 1662.208120310291 -392.105189945283 0 0 {name=annot4 ref=M6}
 C {sg13g2_pr/rsil.sym} 1520 -590 1 0 {name=R3
@@ -229,3 +220,10 @@ m=1
 C {gnd.sym} 1430 -290 0 0 {name=l4 lab=GND}
 C {sg13g2_pr/cap_cpara.sym} 1330 -420 0 0 {name=C3 model=cparasitic C='C_CP'  spiceprefix=X}
 C {gnd.sym} 1330 -290 0 0 {name=l8 lab=GND}
+C {lab_pin.sym} 1330 -590 0 1 {name=p6 sig_type=std_logic lab=CTRL1}
+C {lab_pin.sym} 1430 -480 0 1 {name=p9 sig_type=std_logic lab=CTRL2}
+C {res.sym} 430 -480 0 0 {name=R1
+value=0
+footprint=1206
+device=resistor
+m=1}

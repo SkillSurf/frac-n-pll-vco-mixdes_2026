@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3e-13
-x2=1e-07
+x1=3.255e-13
+x2=1e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -26,7 +26,7 @@ logy=0
 autoload=1
 hilight_wave=-1
 color="7 4"
-node="clk_out
+node="*clk_out
 *x2.dsm_out"}
 B 2 0 -1200 800 -800 {flags=graph
 y1=-0.38082238
@@ -36,8 +36,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3e-13
-x2=1e-07
+x1=3.255e-13
+x2=1e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -50,17 +50,17 @@ hilight_wave=-1
 autoload=1
 color="4 5"
 node="*clk_out
-clk_in"}
+*clk_in"}
 B 2 800 -1200 1600 -800 {flags=graph
-y1=0.095
-y2=0.45
+y1=0.6
+y2=0.63
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3e-13
-x2=1e-07
+x1=3.255e-13
+x2=1e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -70,17 +70,18 @@ unitx=1
 logx=0
 logy=0
 color=4
-node=x2.vctrl}
+node=x2.vctrl
+hilight_wave=-1}
 B 2 1600 -1200 2400 -800 {flags=graph
-y1=0.259872
-y2=1.560032
+y1=-0.017
+y2=1.3
 ypos1=0
 ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3e-13
-x2=1e-07
+x1=3.255e-13
+x2=1e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -103,8 +104,8 @@ ypos2=3.15
 divy=5
 subdivy=1
 unity=1
-x1=3e-13
-x2=1e-07
+x1=3.255e-13
+x2=1e-05
 
 subdivx=4
 xlabmag=1.2
@@ -131,8 +132,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3e-13
-x2=1e-07
+x1=3.255e-13
+x2=1e-05
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -183,7 +184,7 @@ xschem raw_read $netlist_dir/tb_COMB.raw tran;
 xschem redraw
 "}
 C {gnd.sym} 470 -510 0 0 {name=l11 lab=GND}
-C {isource.sym} 470 -550 0 0 {name=I1 value=200u}
+C {isource.sym} 470 -550 0 0 {name=I1 value=50u}
 C {gnd.sym} 620 -510 0 0 {name=l7 lab=GND}
 C {vdd.sym} 620 -720 0 0 {name=l3 lab=VDD}
 C {simulator_commands.sym} 1110 -660 0 0 {name=SimulatorNGSPICE
@@ -217,16 +218,19 @@ value="
 * ==============================
 * Uncomment the line below to pre-charge the loop filter to your expected 
 * V_tune voltage (e.g., 0.6V). This skips the massive initial frequency jump.
-* .ic v(x2.vctrl)=0.6
+.ic v(x2.vctrl)=0.606
+.ic v(x2.x1.ctrl1)=0.606
+.ic v(x2.x1.ctrl2)=0.606
 
 .control
   * CRITICAL: Save ONLY essential low-frequency signals. 
   * Saving 2.4GHz nodes for 100us will crash your memory.
   save x2.vctrl x2.up x2.dn x2.dsm_out clk_out clk_in vbias1 vbias2
+  *save all
 
 
   * 20p defines the step to resolve the 2.4 GHz edges without forcing a maxstep.
-  tran 30p 50u uic
+  tran 30p 10u uic
   
   remzerovec
   write pll_top.raw 
@@ -251,7 +255,7 @@ value="
 .param CP_P_L = 0.5u
 .param CP_P_W = 30u
 .param CP_N_M = 1
-.param C_CP = 10p
+.param C_CP = 1000p
 "}
 C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll.sym} 660 -610 0 0 {name=x2}
 C {lab_pin.sym} 760 -630 0 1 {name=p1 sig_type=std_logic lab=CLK_OUT}

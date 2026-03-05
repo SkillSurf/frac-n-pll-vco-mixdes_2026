@@ -45,17 +45,18 @@ XM2 Vbn Vbn net2 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM1 net2 VDD GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM3 Vbn Vbp net1 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM4 net1 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM7 Vbp Vbp net7 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM8 net7 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM5 net6 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
+XM7 Vbp Vbp net5 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM8 net5 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM5 CTRL1 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM6 net3 DN GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
-XM9 net6 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM9 CTRL1 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM10 net4 UP VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XC1 net5 GND cparasitic C='C_CP'
-XR1 Ibias Vbp sub! rsil w=0.5e-6 l=0.5e-6 m=1 b=0
-XM11 VDD net5 CTRL GND sg13_lv_nmos w=100u l=0.5u ng=20 m=1
-XR2 GND CTRL sub! rsil w=0.5e-6 l=0.5e-3 m=1 b=0
-XR3 net6 net5 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC1 CTRL GND cparasitic C='C_CP'
+XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC2 CTRL2 GND cparasitic C='C_CP'
+XR2 CTRL1 CTRL2 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC3 CTRL1 GND cparasitic C='C_CP'
+R1 Vbp Ibias 0 m=1
 .ends
 
 
