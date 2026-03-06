@@ -1,31 +1,12 @@
 ** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/top_pll_tb.sch
 **.subckt top_pll_tb
 V1 VDD GND 1.2
+.save i(v1)
 I0 VDD Vbias2 50u
 Vfref CLK_IN GND 0 pulse(0 1.2 0n 1n 1n 50n 100n)
-I1 Vbias1 GND 1u
+I1 Vbias1 GND 50u
 x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 **** begin user architecture code
-
-
-
-.lib cornerMOSlv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.lib cornerCAP.lib cap_typ_stat
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
-
-.param CP_N_L = 0.5u
-.param CP_N_W = 10u
-.param CP_P_M = 1
-.param CP_P_L = 0.5u
-.param CP_P_W = 30u
-.param CP_N_M = 1
-.param C_CP = 400p
-
-
 
 
 
@@ -57,10 +38,6 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 .ic v(x2.vctrl)=0.606
 .ic v(x2.x1.ctrl1)=0.606
 .ic v(x2.x1.ctrl2)=0.606
-.op
-*.nodeset v(x2.vctrl)=0.606
-*.nodeset v(x2.x1.ctrl1)=0.606
-*.nodeset v(x2.x1.ctrl2)=0.606
 
 .control
   * CRITICAL: Save ONLY essential low-frequency signals.
@@ -70,15 +47,11 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 
 
   * 20p defines the step to resolve the 2.4 GHz edges without forcing a maxstep.
-  tran 30p 50n uic
+  tran 30p 100n uic
 
   remzerovec
   write pll_top.raw
 .endc
-* to generate following file copy stimuli.test
-* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI),
-* and press 'Translate'
-.include stimuli_test.cir
 
 
 
@@ -92,13 +65,13 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 .global VDD GND
 
 
-.param CP_N_L = 5u
-.param CP_N_W = 3u
+.param CP_N_L = 0.5u
+.param CP_N_W = 10u
 .param CP_P_M = 1
-.param CP_P_L = 5u
-.param CP_P_W = 10u
+.param CP_P_L = 0.5u
+.param CP_P_W = 30u
 .param CP_N_M = 1
-.param C_CP = 400p
+.param C_CP = 1000p
 
 
 **** end user architecture code
@@ -118,7 +91,6 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 x5 CLK_OUT net7 VDD GND sg13g2_inv_2
 x1 VDD UP VCTRL DN GND Ibias CP
 x2 VDD UP CLK_IN DSM_OUT DN GND PFD_std
-x3 VDD net7 OUTn IbiasVCO VCTRL GND LC_VCO
 adut [ net1 net2 net3 net4 net5 ] [ net6 ] null dut
 .model dut d_cosim simulation=./../dsm_and_freq_divider.so
 A1 [ CLK_OUT ] [ net1 ] adc1
@@ -137,6 +109,7 @@ A6 [ net6 ] [ DSM_OUT ] dac1
 * noconn sclk
 * noconn sdata
 * noconn en
+x3 VDD net7 OUTn IbiasVCO VCTRL GND LC_VCO
 .ends
 
 
@@ -160,12 +133,12 @@ XM5 CTRL1 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM6 net3 DN GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM9 CTRL1 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM10 net4 UP VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=100e-6 m=1 b=0
-XR2 CTRL1 CTRL2 sub! rsil w=1e-6 l=100e-6 m=1 b=0
+XC1 CTRL GND cparasitic C='C_CP'
+XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC2 CTRL2 GND cparasitic C='C_CP'
+XR2 CTRL1 CTRL2 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
+XC3 CTRL1 GND cparasitic C='C_CP'
 R1 Vbp Ibias 0 m=1
-XC4 CTRL GND cap_cmim w=50.0e-6 l=100.0e-6 m=10
-XC1 CTRL2 GND cap_cmim w=50.0e-6 l=100.0e-6 m=1
-XC2 CTRL1 GND cap_cmim w=50.0e-6 l=100.0e-6 m=1
 .ends
 
 

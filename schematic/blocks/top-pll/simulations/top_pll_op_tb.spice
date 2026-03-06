@@ -1,11 +1,44 @@
-** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/top_pll_tb.sch
-**.subckt top_pll_tb
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/top_pll_op_tb.sch
+**.subckt top_pll_op_tb OUTn CLK_OUT
+*.opin OUTn
+*.opin CLK_OUT
 V1 VDD GND 1.2
-I0 VDD Vbias2 50u
-Vfref CLK_IN GND 0 pulse(0 1.2 0n 1n 1n 50n 100n)
-I1 Vbias1 GND 1u
-x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
+I0 VDD net1 50u
+Vfref CLK_IN GND 0 pulse(0 1.2 0n 0.1n 0.1n 5n 10n)
+I1 net2 GND 10m
+x1 CLK_OUT CLK_IN net1 OUTn net2 VDD GND pll
 **** begin user architecture code
+
+
+
+*****************************************************
+* PLL + DSM Frequency Divider Testbench
+*****************************************************
+
+.option temp = 27
+.param VDD = 1.2
+
+* ==============================
+* Include Models
+* ==============================
+
+* Inductor / analog models
+.include ./IHP_4nH_Inductor.spice
+
+.control
+save all
+op
+set filetype=ascii
+write op_out.raw
+print all > op_out.txt
+.endc
+
+* to generate following file copy stimuli.test
+* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI),
+* and press 'Translate'
+.include stimuli_test.cir
+
+
 
 
 
@@ -26,95 +59,20 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 .param C_CP = 400p
 
 
-
-
-
-*****************************************************
-* PLL + DSM Frequency Divider Testbench (Optimized)
-*****************************************************
-
-.option temp=27
-.param VDD=1.2
-
-* ==============================
-* Include Models & Stimuli
-* ==============================
-.include ./IHP_4nH_Inductor.spice
-.include stimuli_test.cir
-
-* ==============================
-* Simulation Options (Optimized for Speed & Stability)
-* ==============================
-* gear method improves stability for long oscillator runs
-* reltol=1e-3 prevents the simulator from bogging down on microscopic errors
-.options reltol=1e-3 abstol=1e-9 vntol=1e-6 method=gear
-
-* ==============================
-* Initial Conditions (Speed Hack)
-* ==============================
-* Uncomment the line below to pre-charge the loop filter to your expected
-* V_tune voltage (e.g., 0.6V). This skips the massive initial frequency jump.
-.ic v(x2.vctrl)=0.606
-.ic v(x2.x1.ctrl1)=0.606
-.ic v(x2.x1.ctrl2)=0.606
-.op
-*.nodeset v(x2.vctrl)=0.606
-*.nodeset v(x2.x1.ctrl1)=0.606
-*.nodeset v(x2.x1.ctrl2)=0.606
-
-.control
-  * CRITICAL: Save ONLY essential low-frequency signals.
-  * Saving 2.4GHz nodes for 100us will crash your memory.
-  save x2.vctrl x2.up x2.dn x2.dsm_out clk_out clk_in vbias1 vbias2
-  *save all
-
-
-  * 20p defines the step to resolve the 2.4 GHz edges without forcing a maxstep.
-  tran 30p 50n uic
-
-  remzerovec
-  write pll_top.raw
-.endc
-* to generate following file copy stimuli.test
-* to the simulation directory and run simulation -> Utile Stimuli Editor (GUI),
-* and press 'Translate'
-.include stimuli_test.cir
-
-
-
-
-
-.lib cornerMOSlv.lib mos_tt
-.lib cornerHBT.lib hbt_typ
-.lib cornerRES.lib res_typ
-.lib cornerCAP.lib cap_typ_stat
-.include /foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.global VDD GND
-
-
-.param CP_N_L = 5u
-.param CP_N_W = 3u
-.param CP_P_M = 1
-.param CP_P_L = 5u
-.param CP_P_W = 10u
-.param CP_N_M = 1
-.param C_CP = 400p
-
-
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll.sym # of pins=7
+* expanding   symbol:  pll.sym # of pins=7
 ** sym_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll.sym
 ** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/top-pll/pll.sch
 .subckt pll CLK_OUT CLK_IN IbiasVCO OUTn Ibias VDD GND
+*.opin OUTn
 *.iopin GND
 *.iopin VDD
 *.ipin CLK_IN
+*.opin CLK_OUT
 *.ipin IbiasVCO
 *.ipin Ibias
-*.opin OUTn
-*.opin CLK_OUT
 x5 CLK_OUT net7 VDD GND sg13g2_inv_2
 x1 VDD UP VCTRL DN GND Ibias CP
 x2 VDD UP CLK_IN DSM_OUT DN GND PFD_std
@@ -154,18 +112,17 @@ XM2 Vbn Vbn net2 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM1 net2 VDD GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM3 Vbn Vbp net1 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM4 net1 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM7 Vbp Vbp net5 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM8 net5 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM5 CTRL1 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
+XM7 Vbp Vbp net7 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM8 net7 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM5 net6 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM6 net3 DN GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
-XM9 CTRL1 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM9 net6 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM10 net4 UP VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=100e-6 m=1 b=0
-XR2 CTRL1 CTRL2 sub! rsil w=1e-6 l=100e-6 m=1 b=0
-R1 Vbp Ibias 0 m=1
-XC4 CTRL GND cap_cmim w=50.0e-6 l=100.0e-6 m=10
-XC1 CTRL2 GND cap_cmim w=50.0e-6 l=100.0e-6 m=1
-XC2 CTRL1 GND cap_cmim w=50.0e-6 l=100.0e-6 m=1
+XC1 net5 GND cparasitic C='C_CP'
+XR1 Ibias Vbp sub! rsil w=0.5e-6 l=0.5e-6 m=1 b=0
+XM11 VDD net5 CTRL GND sg13_lv_nmos w=100u l=0.5u ng=20 m=1
+XR2 GND CTRL sub! rsil w=0.5e-6 l=0.5e-4 m=1 b=0
+XR3 net6 net5 sub! rsil w=0.5e-6 l=1e-5 m=1 b=0
 .ends
 
 
