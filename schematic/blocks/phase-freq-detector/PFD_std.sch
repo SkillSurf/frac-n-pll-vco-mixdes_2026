@@ -34,5 +34,3 @@ C {sg13g2_stdcells/sg13g2_dfrbp_2.sym} 540 -240 0 0 {name=x2 VDD=VDD VSS=GND pre
 C {sg13g2_stdcells/sg13g2_nand2_2.sym} 660 -340 0 1 {name=x3 VDD=VDD VSS=GND prefix=sg13g2_ }
 C {lab_pin.sym} 450 -430 0 0 {name=p6 sig_type=std_logic lab=RST_N}
 C {sg13g2_stdcells/sg13g2_inv_2.sym} 780 -470 0 0 {name=x4 VDD=VDD VSS=GND prefix=sg13g2_ }
-C {opin.sym} 630 -240 0 0 {name=p3 lab=QN}
-C {opin.sym} 630 -450 0 0 {name=p8 lab=QN}
