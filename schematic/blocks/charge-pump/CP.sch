@@ -242,3 +242,4 @@ w=50.0e-6
 l=100.0e-6
 m=1
 spiceprefix=X}
+C {opin.sym} 630 -240 0 0 {name=p15 lab=QN}
