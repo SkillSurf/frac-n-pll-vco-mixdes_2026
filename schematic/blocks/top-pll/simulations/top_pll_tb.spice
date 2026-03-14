@@ -3,7 +3,7 @@
 V1 VDD GND 1.2
 I0 VDD Vbias2 50u
 Vfref CLK_IN GND 0 pulse(0 1.2 0n 1n 1n 50n 100n)
-I1 Vbias1 GND 1u
+I1 Vbias1 GND 50u
 x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 **** begin user architecture code
 
@@ -68,13 +68,12 @@ x2 CLK_OUT CLK_IN Vbias2 OUTn Vbias1 VDD GND pll
 .global VDD GND
 
 
-.param CP_N_L = 5u
+.param CP_N_L = 1u
 .param CP_N_W = 3u
 .param CP_P_M = 1
-.param CP_P_L = 5u
+.param CP_P_L = 1u
 .param CP_P_W = 10u
 .param CP_N_M = 1
-.param C_CP = 10p
 
 
 **** end user architecture code
@@ -128,20 +127,19 @@ A6 [ net6 ] [ DSM_OUT ] dac1
 *.ipin GND
 XM2 Vbn Vbn net2 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM1 net2 VDD GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
-XM3 Vbn Vbp net1 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM3 Vbn Ibias net1 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM4 net1 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XM7 Vbp Vbp net5 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM7 Ibias Ibias net5 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM8 net5 GND VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM5 CTRL1 Vbn net3 GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
 XM6 net3 DN GND GND sg13_lv_nmos w={CP_N_W} l={CP_N_L} ng=1 m={CP_N_M}
-XM9 CTRL1 Vbp net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
+XM9 CTRL1 Ibias net4 VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
 XM10 net4 UP VDD VDD sg13_lv_pmos w={CP_P_W} l={CP_P_L} ng=1 m={CP_P_M}
-XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=100e-6 m=1 b=0
-XR2 CTRL1 CTRL2 sub! rsil w=1e-6 l=100e-6 m=1 b=0
-R1 Vbp Ibias 0 m=1
-XC4 CTRL GND cap_cmim w=50.0e-6 l=100.0e-6 m=10
-XC1 CTRL2 GND cap_cmim w=50.0e-6 l=100.0e-6 m=1
-XC2 CTRL1 GND cap_cmim w=50.0e-6 l=100.0e-6 m=1
+XR3 CTRL1 CTRL sub! rsil w=0.5e-6 l=1000e-6 m=1 b=0
+XR2 CTRL1 CTRL2 sub! rsil w=0.5e-6 l=2500e-6 m=1 b=0
+XC4 CTRL GND cap_cmim w=60.0e-6 l=60.0e-6 m=1
+XC1 CTRL2 GND cap_cmim w=40.0e-6 l=40.0e-6 m=4
+XC2 CTRL1 GND cap_cmim w=15.0e-6 l=20.0e-6 m=4
 .ends
 
 
