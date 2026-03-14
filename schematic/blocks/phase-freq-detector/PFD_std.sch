@@ -20,7 +20,6 @@ C {ipin.sym} 110 -250 0 0 {name=p1 lab=VDD}
 C {ipin.sym} 110 -160 0 0 {name=p5 lab=GND}
 C {opin.sym} 180 -180 0 0 {name=p7 lab=DN}
 C {ipin.sym} 110 -190 0 0 {name=p20 lab=F_VCO}
-C {title.sym} 160 -30 0 0 {name=l1 author="Rajinthan R"}
 C {lab_pin.sym} 450 -470 0 0 {name=p10 sig_type=std_logic lab=F_REF}
 C {lab_pin.sym} 450 -450 0 0 {name=p9 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 450 -240 0 0 {name=p11 sig_type=std_logic lab=VDD}
