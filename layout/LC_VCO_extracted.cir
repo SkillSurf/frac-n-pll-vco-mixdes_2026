@@ -1,0 +1,14 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 14/03/2026 17:24
+
+.SUBCKT LC_VCO
+M$1 1 4 4 1 sg13_lv_nmos L=0.15u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
+M$2 5 4 1 1 sg13_lv_nmos L=0.15u W=1u AS=0.34p AD=0.34p PS=2.68u PD=2.68u
+M$3 5 2 6 1 sg13_lv_nmos L=0.5u W=2u AS=0.68p AD=0.68p PS=4.68u PD=4.68u
+M$4 2 6 5 1 sg13_lv_nmos L=0.5u W=2u AS=0.68p AD=0.68p PS=4.68u PD=4.68u
+M$5 2 3 2 7 sg13_lv_pmos L=4u W=4u AS=1.36p AD=1.36p PS=8.68u PD=8.68u
+M$6 2 6 7 7 sg13_lv_pmos L=0.5u W=8.5u AS=2.89p AD=2.89p PS=17.68u PD=17.68u
+M$7 6 3 6 7 sg13_lv_pmos L=4u W=4u AS=1.36p AD=1.36p PS=8.68u PD=8.68u
+M$8 7 2 6 7 sg13_lv_pmos L=0.5u W=8.5u AS=2.89p AD=2.89p PS=17.68u PD=17.68u
+R$9 2 6 rhigh w=1u l=1u ps=0 b=0 m=1
+C$10 6 2 cap_cmim w=4u l=4u A=16p P=16u m=1
+.ENDS LC_VCO

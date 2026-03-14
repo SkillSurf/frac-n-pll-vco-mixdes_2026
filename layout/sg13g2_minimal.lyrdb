@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
  <description>design rules: sg13g2_minimal | layout cell: PFD_std</description>
- <original-file>/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/post-layout/PFD_std.gds</original-file>
+ <original-file>/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/layout/PFD_std.gds</original-file>
  <generator>drc: script='/foss/pdks/ihp-sg13g2/libs.tech/klayout/tech/drc/sg13g2_minimal.lydrc'</generator>
  <top-cell>PFD_std</top-cell>
  <tags>
+  <tag>
+   <name>waived</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>red</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>green</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>blue</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>yellow</name>
+   <description/>
+  </tag>
+  <tag>
+   <name>important</name>
+   <description/>
+  </tag>
  </tags>
  <categories>
   <category>
@@ -489,7 +513,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -501,7 +525,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -513,7 +537,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -525,7 +549,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -537,7 +561,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -549,7 +573,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -561,7 +585,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -573,7 +597,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -585,7 +609,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -597,7 +621,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -609,7 +633,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
   <item>
@@ -621,7 +645,7 @@
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-1.575,-5.39;-1.575,4.25;18.06,4.25;18.06,-5.39)</value>
+    <value>polygon: (-2.505,-5.39;-2.505,4.25;19.04,4.25;19.04,-5.39)</value>
    </values>
   </item>
  </items>

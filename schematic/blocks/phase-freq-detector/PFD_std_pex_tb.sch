@@ -157,5 +157,4 @@ write_data [save_params] $netlist_dir/[file rootname [file tail [xschem get curr
 xschem netlist
 simulate
 "}
-C {title.sym} 160 -30 0 0 {name=l4 author="Skill Surf"}
 C {PFD_std_pex.sym} 570 -280 0 0 {name=x1}
