@@ -1,29 +1,16 @@
-.SUBCKT LC_VCO VDD OUTP OUTN IBIAS VCTRL GND
-*.PININFO VDD:B OUTP:O OUTN:O GND:B VCTRL:B IBIAS:B
-
-M6 net1 IBIAS GND GND sg13_lv_nmos w=1u l=0.15u m=60
-M5 IBIAS IBIAS GND GND sg13_lv_nmos w=1u l=0.15u m=1
-
-M4 OUTP OUTN VDD VDD sg13_lv_pmos w=8.5u l=0.5u m=13
-M3 OUTN OUTP VDD VDD sg13_lv_pmos w=8.5u l=0.5u m=13
-
-M2 OUTP OUTN net1 GND sg13_lv_nmos w=2u l=0.5u m=12
-M1 OUTN OUTP net1 GND sg13_lv_nmos w=2u l=0.5u m=12
-
-XC3 OUTP OUTN cap_cmim w=4e-6 l=4e-6 m=14
-
-Mv2 OUTP VCTRL OUTP VDD sg13_lv_pmos w=4u l=4u m=22
-Mv1 OUTN VCTRL OUTN VDD sg13_lv_pmos w=4u l=4u m=22
-
-XR1 OUTN OUTP GND rhigh w=1e-6 l=1e-6 m=1
-
-x1 OUTN OUTP IHP_4nH_Inductor
-
+** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/LC_VCO.sch
+.SUBCKT LC_VCO VDD OUTp OUTn Ibias VCTRL GND
+*.PININFO VDD:B OUTp:O OUTn:O GND:B VCTRL:B Ibias:B
+M6 net1 Ibias GND GND sg13_lv_nmos w=1u l=0.15u ng=1 m=60
+M5 Ibias Ibias GND GND sg13_lv_nmos w=1u l=0.15u ng=1 m=1
+M4 OUTp OUTn VDD VDD sg13_lv_pmos w=8.5u l=0.5u ng=1 m=13
+M3 OUTn OUTp VDD VDD sg13_lv_pmos w=8.5u l=0.5u ng=1 m=13
+M2 OUTp OUTn net1 GND sg13_lv_nmos w=2u l=0.5u ng=1 m=12
+M1 OUTn OUTp net1 GND sg13_lv_nmos w=2u l=0.5u ng=1 m=12
+XC3 OUTp OUTn cap_cmim w=4.26e-6 l=4.26e-6 m=12
+Mv2 OUTp VCTRL OUTp VDD sg13_lv_pmos w=4u l=4u ng=1 m=22
+Mv1 OUTn VCTRL OUTn VDD sg13_lv_pmos w=4u l=4u ng=1 m=22
+XR1 OUTn OUTp sub! rhigh w=1e-6 l=0.79e-6 m=1 b=0
+x1 OUTn OUTp ihp_4nh_inductor
 .ENDS
-
-.SUBCKT IHP_4nH_Inductor p n
-L1 p n 4n
-.ENDS
-
 .GLOBAL VDD
-.GLOBAL GND

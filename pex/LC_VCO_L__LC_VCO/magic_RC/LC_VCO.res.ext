@@ -1,0 +1,62 @@
+scale 1000 1 0.5
+rnode "VDD" 0 0 -17896 -9292 0
+rnode "GND" 0 0 -17937 -16011 0
+rnode "VCTRL.n0" 0 0 1135 -18597 0
+rnode "VCTRL" 0 0 -17954 -19980 0
+resist "VCTRL" "VCTRL.n0" 25.3306
+rnode "OUTn.n0" 0 -0 -11903 -10932 0
+rnode "OUTn.n1" 0 -0 -11428 -14478 0
+rnode "OUTn.n2" 0 0 -15192 -13301 0
+rnode "OUTn" 0 0 404 -14804 0
+resist "OUTn.n2" "OUTn.n0" 17.924
+resist "OUTn" "OUTn.n2" 19.1133
+resist "OUTn.n2" "OUTn.n1" 20.2342
+rnode "OUTp.n0" 0 0 -16587 -10930 0
+rnode "OUTp.n1" 0 0 -16042 -14478 0
+rnode "OUTp.n2" 0 0 -11613 -12590 0
+rnode "OUTp.n3" 0 0 -9267 -9919 0
+rnode "OUTp.n4" 0 0 -9729 -11804 0
+rnode "OUTp.n5" 0 0 -9729 -11804 0
+rnode "OUTp.n6" 0 0 -8049 -9620 0
+rnode "OUTp.n7" 0 0 -9729 -8528 0
+rnode "OUTp.n8" 0 0 -8049 -8528 0
+rnode "OUTp.n9" 0 0 -8637 -8528 0
+rnode "OUTp.n10" 0 0 -8889 -9116 0
+rnode "OUTp.n11" 0 0 -9729 -9620 0
+rnode "OUTp.n12" 0 0 -9729 -10208 0
+rnode "OUTp.n13" 0 0 -9603 -9919 0
+rnode "OUTp.n14" 0 0 -9267 -9919 0
+rnode "OUTp.n15" 0 0 -8889 -10712 0
+rnode "OUTp.n16" 0 0 -7545 -11804 0
+rnode "OUTp.n17" 0 0 -7807 -12674 0
+rnode "OUTp" 0 0 420 -11624 0
+resist "OUTp.n10" "OUTp.n9" 0.00136848
+resist "OUTp.n14" "OUTp.n3" 0.00227566
+resist "OUTp.n15" "OUTp.n14" 0.00688095
+resist "OUTp.n14" "OUTp.n10" 0.00711905
+resist "OUTp.n14" "OUTp.n13" 0.00822857
+resist "OUTp.n15" "OUTp.n5" 0.00958101
+resist "OUTp.n16" "OUTp.n3" 0.00975719
+resist "OUTp.n16" "OUTp.n15" 0.0115043
+resist "OUTp.n9" "OUTp.n8" 0.0138172
+resist "OUTp.n5" "OUTp.n4" 0.0145387
+resist "OUTp.n9" "OUTp.n7" 0.0148157
+resist "OUTp.n6" "OUTp.n3" 0.0167861
+resist "OUTp.n13" "OUTp.n12" 0.0197045
+resist "OUTp.n13" "OUTp.n11" 0.0203864
+resist "OUTp.n12" "OUTp.n5" 0.0291004
+resist "OUTp.n11" "OUTp.n10" 0.04704
+resist "OUTp.n10" "OUTp.n6" 0.04704
+resist "OUTp.n17" "OUTp.n2" 1.72643
+resist "OUTp.n8" "OUTp.n6" 2.24835
+resist "OUTp" "OUTp.n17" 4.43508
+resist "OUTp.n17" "OUTp.n16" 29.2314
+resist "OUTp.n2" "OUTp.n0" 31.1725
+resist "OUTp.n2" "OUTp.n1" 31.5907
+rnode "IBIAS.n0" 0 0 -16964 -15296 0
+rnode "IBIAS.n1" 0 0 -10474 -15296 0
+rnode "IBIAS.n2" 0 0 -16964 -15366 0
+rnode "IBIAS" 0 0 -16988 -15075 0
+resist "IBIAS" "IBIAS.n2" 0.485984
+resist "IBIAS.n2" "IBIAS.n0" 5.5995
+resist "IBIAS.n2" "IBIAS.n1" 15.4148

@@ -1,0 +1,53 @@
+
+Magic 8.3 revision 530 - Compiled on Tue Jul 29 09:46:08 AM CEST 2025.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology ihp-sg13g2 ...
+2 Magic internal units = 1 Lambda
+Input style sg13g2(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    fillfet sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pad seal thruvia 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading "pex/LC_VCO_L__LC_VCO/magic_RC/LC_VCO_MAGIC_RC_Script.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "$$$CONTEXT_INFO$$$".
+Reading "GenericVia$1".
+Reading "GenericVia".
+Reading "GenericVia$2".
+Reading "GenericVia$3".
+Reading "GenericVia$4".
+Reading "GenericVia$5".
+Reading "rhigh".
+Reading "nmos$5".
+Reading "IHP_4nH_Inductor".
+Reading "nmos".
+Reading "pmos$2".
+Reading "nmos$4".
+Reading "pmos$3".
+Reading "cmim".
+Reading "LC_VCO".
+Error while reading cell "LC_VCO" (byte position 152772): Warning: cell "pmos$2" placed on top of itself.  Ignoring the extra one.
+Extracting LC_VCO into /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/pex/LC_VCO_L__LC_VCO/magic_RC/LC_VCO.ext:
+LC_VCO: 44 warnings
+Total of 44 warnings.
+Port: name = IBIAS is new node 0x5d48cb530870
+Location is (-16988, -15075); drivepoint (-16988, -15075)
+Port: name = OUTp is new node 0x5d48cb5307e0
+Location is (420, -11624); drivepoint (420, -11624)
+Port: name = OUTn is new node 0x5d48cb7acbb0
+Location is (404, -14804); drivepoint (404, -14804)
+Port: name = VCTRL is new node 0x5d48cb530900
+Location is (-17954, -19980); drivepoint (-17954, -19980)
+Port: name = GND is new node 0x5d48ca0e6650
+Location is (-17937, -16011); drivepoint (-17937, -16011)
+Port: name = VDD is new node 0x5d48cb174390
+Location is (-17896, -9292); drivepoint (-17896, -9292)
+Total Nets: 6
+Nets extracted: 6 (1.000000)
+Nets output: 6 (1.000000)
+exttospice finished.

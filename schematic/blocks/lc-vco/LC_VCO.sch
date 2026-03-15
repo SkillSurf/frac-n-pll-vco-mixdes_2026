@@ -213,9 +213,9 @@ spiceprefix=X
 }
 C {sg13g2_pr/cap_cmim.sym} 2160 160 1 0 {name=C3
 model=cap_cmim
-w=4.0e-6
-l=4.0e-6
-m=13.6
+w=4.26e-6
+l=4.26e-6
+m=12
 spiceprefix=X}
 C {sg13g2_pr/sg13_lv_pmos.sym} 2630 560 3 0 {name=Mv2
 l=4u
@@ -235,10 +235,10 @@ spiceprefix=X
 }
 C {sg13g2_pr/rhigh.sym} 2160 360 1 0 {name=R1
 w=1e-6
-l=1e-6
+l=0.79e-6
 model=rhigh
 body=sub!
 spiceprefix=X
 b=0
-m=1.23}
-C {/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/lc-vco/ihp_4nh_inductor.sym} 2150 270 0 0 {name=x1}
+m=1}
+C {ihp_4nh_inductor.sym} 2150 270 0 0 {name=x1}

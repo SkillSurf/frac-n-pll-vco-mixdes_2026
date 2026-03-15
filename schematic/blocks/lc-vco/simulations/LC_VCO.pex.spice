@@ -1,0 +1,224 @@
+* NGSPICE file created from LC_VCO.ext - technology: ihp-sg13g2
+
+.subckt LC_VCO IBIAS OUTp OUTn VCTRL GND VDD
+X0 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X1 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=65.73882p ps=0.66871m w=4u l=4u
+X2 OUTn OUTp VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X3 OUTp OUTn VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X4 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=81.2192p ps=0.72584m w=4u l=4u
+X5 VDD OUTn OUTp VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X6 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X7 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X8 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X9 OUTn OUTp a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X10 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X11 a_n16713_n15396# OUTn OUTp GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X12 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X13 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X14 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X15 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X16 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X17 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X18 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X19 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X20 VDD OUTp OUTn VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X21 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X22 VDD OUTp OUTn VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X23 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X24 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X25 OUTp OUTn VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X26 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X27 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X28 IBIAS IBIAS GND GND sg13_lv_nmos ad=0.34p pd=2.68u as=0.34p ps=2.68u w=1u l=0.15u
+X29 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X30 a_n16713_n15396# OUTp OUTn GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X31 OUTn OUTp a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X32 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X33 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X34 OUTn OUTp a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X35 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X36 OUTp OUTn VDD VDD sg13_lv_pmos ad=2.89p pd=17.68u as=1.615p ps=8.88u w=8.5u l=0.5u
+X37 OUTn OUTp VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X38 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X39 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X40 VDD OUTp OUTn VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X41 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X42 a_n16713_n15396# OUTn OUTp GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X43 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X44 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X45 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X46 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X47 a_n16713_n15396# OUTp OUTn GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X48 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X49 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X50 a_n16713_n15396# OUTp OUTn GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X51 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X52 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X53 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X54 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X55 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X56 a_n16713_n15396# OUTn OUTp GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X57 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X58 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X59 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X60 OUTn OUTp VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X61 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X62 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X63 OUTp OUTn a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.5u
+X64 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X65 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X66 VDD OUTn OUTp VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X67 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X68 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=1.36p pd=8.68u as=0 ps=0 w=4u l=4u
+X69 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X70 VDD OUTp OUTn VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X71 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X72 OUTp OUTn VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=2.89p ps=17.68u w=8.5u l=0.5u
+X73 a_n16713_n15396# OUTn OUTp GND sg13_lv_nmos ad=0.68p pd=4.68u as=0.38p ps=2.38u w=2u l=0.5u
+X74 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X75 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X76 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X77 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X78 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.34p ps=2.68u w=1u l=0.15u
+X79 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X80 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X81 OUTp OUTn a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X82 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X83 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X84 OUTp OUTn VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X85 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.34p pd=2.68u as=0.19p ps=1.38u w=1u l=0.15u
+X86 OUTp OUTn VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X87 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X88 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X89 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X90 OUTn OUTp VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=2.89p ps=17.68u w=8.5u l=0.5u
+X91 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X92 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X93 OUTp OUTn a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X94 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X95 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X96 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X97 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=1.36p pd=8.68u as=0 ps=0 w=4u l=4u
+X98 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X99 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X100 VDD OUTn OUTp VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X101 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X102 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X103 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X104 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X105 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X106 OUTn OUTp VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X107 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X108 a_n16713_n15396# OUTp OUTn GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X109 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X110 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X111 a_n16713_n15396# OUTp OUTn GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X112 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X113 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X114 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X115 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X116 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X117 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X118 OUTn OUTp VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X119 OUTn OUTp VDD VDD sg13_lv_pmos ad=2.89p pd=17.68u as=1.615p ps=8.88u w=8.5u l=0.5u
+X120 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X121 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X122 OUTp OUTn a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X123 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X124 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X125 VDD OUTn OUTp VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X126 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X127 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X128 VDD OUTp OUTn VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X129 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X130 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X131 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X132 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X133 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X134 a_n16713_n15396# OUTp OUTn GND sg13_lv_nmos ad=0.68p pd=4.68u as=0.38p ps=2.38u w=2u l=0.5u
+X135 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X136 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X137 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X138 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X139 OUTp OUTn VDD VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X140 VDD OUTp OUTn VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X141 OUTn OUTp a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=0.5u
+X142 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X143 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X144 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X145 OUTp OUTn a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X146 OUTp OUTn a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X147 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X148 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X149 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X150 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X151 OUTn OUTp a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X152 OUTn OUTp a_n16713_n15396# GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X153 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X154 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X155 VDD OUTn OUTp VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X156 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X157 VDD OUTn OUTp VDD sg13_lv_pmos ad=1.615p pd=8.88u as=1.615p ps=8.88u w=8.5u l=0.5u
+X158 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X159 OUTp VCTRL OUTp VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X160 a_n16713_n15396# IBIAS GND GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X161 a_n16713_n15396# OUTn OUTp GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X162 OUTp OUTn cap_cmim l=4.26u w=4.26u
+X163 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X164 a_n16713_n15396# OUTn OUTp GND sg13_lv_nmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=0.5u
+X165 OUTn VCTRL OUTn VDD sg13_lv_pmos ad=0.76p pd=4.38u as=0 ps=0 w=4u l=4u
+X166 GND IBIAS a_n16713_n15396# GND sg13_lv_nmos ad=0.19p pd=1.38u as=0.19p ps=1.38u w=1u l=0.15u
+X167 OUTp OUTn sub! rhigh l=0.79u w=1u
+C0 IBIAS VCTRL 0.04337f
+C1 VDD VCTRL 85.36279f
+C2 OUTp VCTRL 6.77454f
+C3 a_n16713_n15396# OUTn 1.67674f
+C4 IBIAS VDD 0.0719f
+C5 OUTn VCTRL 6.59504f
+C6 IBIAS OUTp 0.06946f
+C7 OUTp VDD 34.0966f
+C8 a_n15960_n13084# OUTp 0.03239f
+C9 OUTn IBIAS 0.03493f
+C10 OUTn VDD 21.9491f
+C11 a_n16713_n15396# IBIAS 0.89397f
+C12 OUTn OUTp 23.2156f
+C13 a_n15960_n13084# OUTn 0.03422f
+C14 a_n16713_n15396# OUTp 2.51998f
+R0 IBIAS.n2 IBIAS.n1 15.4153
+R1 IBIAS.n2 IBIAS.n0 5.6
+R2 IBIAS IBIAS.n2 0.486484
+R3 OUTp.n2 OUTp.n1 31.5912
+R4 OUTp.n2 OUTp.n0 31.173
+R5 OUTp.n17 OUTp.n16 29.2319
+R6 OUTp OUTp.n17 4.43558
+R7 OUTp.n8 OUTp.n6 2.24885
+R8 OUTp.n17 OUTp.n2 1.72693
+R9 OUTp.n10 OUTp.n6 0.04754
+R10 OUTp.n11 OUTp.n10 0.04754
+R11 OUTp.n12 OUTp.n5 0.0296004
+R12 OUTp.n13 OUTp.n11 0.0208864
+R13 OUTp.n13 OUTp.n12 0.0202045
+R14 OUTp.n6 OUTp.n3 0.0172861
+R15 OUTp.n9 OUTp.n7 0.0153157
+R16 OUTp.n5 OUTp.n4 0.0150387
+R17 OUTp.n9 OUTp.n8 0.0143172
+R18 OUTp.n16 OUTp.n15 0.0120043
+R19 OUTp.n16 OUTp.n3 0.0102572
+R20 OUTp.n15 OUTp.n5 0.010081
+R21 OUTp.n14 OUTp.n13 0.00872857
+R22 OUTp.n14 OUTp.n10 0.00761905
+R23 OUTp.n15 OUTp.n14 0.00738095
+R24 OUTp.n14 OUTp.n3 0.00277566
+R25 OUTp.n10 OUTp.n9 0.00186848
+R26 OUTn.n2 OUTn.n1 20.2347
+R27 OUTn OUTn.n2 19.1138
+R28 OUTn.n2 OUTn.n0 17.9245
+R29 VCTRL VCTRL.n0 25.3311
+C15 VCTRL GND 16.9221f
+C16 IBIAS GND 13.1956f
+C17 OUTn GND 34.6605f
+C18 OUTp GND 32.3355f
+C19 VDD GND 7.73303f
+C20 a_n16713_n15396# GND 10.162f $ **FLOATING
+C21 a_n15960_n13084# GND 0.13944f
+.ends

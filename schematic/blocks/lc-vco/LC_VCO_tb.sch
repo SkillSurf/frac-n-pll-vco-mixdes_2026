@@ -5,29 +5,6 @@ V {}
 S {}
 F {}
 E {}
-B 2 820 -570 1620 -170 {flags=graph
-y1=0.084
-y2=1.1
-ypos1=0
-ypos2=2
-divy=5
-subdivy=1
-unity=1
-x1=-5.7459916e-08
-x2=1.4254008e-07
-divx=5
-subdivx=1
-xlabmag=1.0
-ylabmag=1.0
-dataset=-1
-unitx=1
-logx=0
-logy=0
-rawfile=$netlist_dir/LC_VCO_tb.raw
-autoload=1
-sim_type=tran
-color=5
-node=outp}
 N 240 -400 240 -360 {lab=GND}
 N 180 -540 180 -460 {lab=VDD}
 N 180 -400 180 -360 {lab=GND}
@@ -76,13 +53,13 @@ value="
 save time v(OUTp) v(CTRL)
 
 * Long transient for ~10 kHz FFT resolution
-tran 5p 100u UIC
+tran 0.01n 0.5u UIC
 
 * Save raw waveform
 write LC_VCO_tb.raw
 
 * Plot steady-state waveform
-plot v(OUTp) xlimit 80u 100u
+plot v(OUTp) xlimit 5n 60n
 
 * FFT analysis
 linearize v(OUTp)
@@ -91,7 +68,7 @@ fft v(OUTp)
 let vmag = db(mag(v(OUTp)))
 
 * Plot FFT spectrum
-plot vmag vs frequency xlimit 0 10G
+plot vmag vs frequency xlimit 0 5G
 
 * Save FFT data
 wrdata fft_output.txt frequency vmag
