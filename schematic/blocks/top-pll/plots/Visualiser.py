@@ -405,7 +405,7 @@ def plot_overview(signals, mask, save_path=None):
 def main():
     parser = argparse.ArgumentParser(
         description="Visualise ngspice PLL simulation results (.raw files)")
-    parser.add_argument("--raw", default="pll_top.raw",
+    parser.add_argument("--raw", default="../simulations/pll_top.raw",
                         help="Path to the ngspice .raw file (default: pll_top.raw)")
     parser.add_argument("--start", type=float, default=None,
                         help="Start time in seconds (e.g. 5e-6)")
