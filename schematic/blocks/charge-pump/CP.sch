@@ -83,52 +83,20 @@ C {lab_pin.sym} 810 -500 0 1 {name=p14 sig_type=std_logic lab=Vbn}
 C {lab_pin.sym} 710 -360 0 0 {name=p2 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 700 -500 0 0 {name=p8 sig_type=std_logic lab=GND}
 C {sg13g2_pr/sg13_lv_nmos.sym} 760 -500 0 1 {name=M2
-l=\{CP_N_L\}
-w=\{CP_N_W\}
+l=2u
+w=3u
 ng=1
-m=\{CP_N_M\}
+m=1
 nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 760 -360 0 1 {name=M1
-l=\{CP_N_L\}
-w=\{CP_N_W\}
-ng=1
-m=\{CP_N_M\}
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 760 -670 0 1 {name=M3
-l=\{CP_P_L\}
-w=\{CP_P_W\}
-ng=1
-m=\{CP_P_M\}
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 760 -770 0 1 {name=M4
-l=\{CP_P_L\}
-w=\{CP_P_W\}
-ng=1
-m=\{CP_P_M\}
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {lab_pin.sym} 430 -410 0 1 {name=p18 sig_type=std_logic lab=Ibias}
-C {sg13g2_pr/sg13_lv_pmos.sym} 450 -670 0 1 {name=M7
-l=\{CP_P_L\}
-w=\{CP_P_W\}
-ng=1
-m=\{CP_P_M\}
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {sg13g2_pr/sg13_lv_pmos.sym} 450 -770 0 1 {name=M8
-l=\{CP_P_L\}
-w=\{CP_P_W\}
+l=2u
+w=10u
 ng=1
-m=\{CP_P_M\}
+m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
@@ -136,38 +104,6 @@ C {lab_pin.sym} 1210 -500 0 0 {name=p11 sig_type=std_logic lab=Vbn}
 C {lab_pin.sym} 1310 -360 0 1 {name=p13 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 1080 -360 0 0 {name=p17 sig_type=std_logic lab=DN}
 C {lab_pin.sym} 1320 -500 0 1 {name=p21 sig_type=std_logic lab=GND}
-C {sg13g2_pr/sg13_lv_nmos.sym} 1260 -500 0 0 {name=M5
-l=\{CP_N_L\}
-w=\{CP_N_W\}
-ng=1
-m=\{CP_N_M\}
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_nmos.sym} 1260 -360 0 0 {name=M6
-l=\{CP_N_L\}
-w=\{CP_N_W\}
-ng=1
-m=\{CP_N_M\}
-model=sg13_lv_nmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 1260 -670 0 0 {name=M9
-l=\{CP_P_L\}
-w=\{CP_P_W\}
-ng=1
-m=\{CP_P_M\}
-model=sg13_lv_pmos
-spiceprefix=X
-}
-C {sg13g2_pr/sg13_lv_pmos.sym} 1260 -770 0 0 {name=M10
-l=\{CP_P_L\}
-w=\{CP_P_W\}
-ng=1
-m=\{CP_P_M\}
-model=sg13_lv_pmos
-spiceprefix=X
-}
 C {lab_pin.sym} 2220 -590 0 1 {name=p25 sig_type=std_logic lab=CTRL}
 C {lab_pin.sym} 510 -770 0 1 {name=p26 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 390 -770 0 0 {name=p27 sig_type=std_logic lab=VDD}
@@ -238,3 +174,70 @@ ic=2}
 C {lab_pin.sym} 510 -670 0 1 {name=p10 sig_type=std_logic lab=Ibias}
 C {lab_pin.sym} 820 -670 0 1 {name=p15 sig_type=std_logic lab=Ibias}
 C {lab_pin.sym} 1200 -670 0 0 {name=p16 sig_type=std_logic lab=Ibias}
+C {sg13g2_pr/sg13_lv_pmos.sym} 450 -670 0 1 {name=M11
+l=2u
+w=10u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 760 -670 0 1 {name=M3
+l=2u
+w=10u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 760 -770 0 1 {name=M4
+l=2u
+w=10u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 1260 -770 0 0 {name=M7
+l=2u
+w=10u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_pmos.sym} 1260 -670 0 0 {name=M9
+l=2u
+w=10u
+ng=1
+m=1
+model=sg13_lv_pmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 760 -360 0 1 {name=M10
+l=2u
+w=3u
+ng=1
+m=1
+nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 1260 -360 0 0 {name=M1
+l=2u
+w=3u
+ng=1
+m=1
+nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
+model=sg13_lv_nmos
+spiceprefix=X
+}
+C {sg13g2_pr/sg13_lv_nmos.sym} 1260 -500 0 0 {name=M5
+l=2u
+w=3u
+ng=1
+m=1
+nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
+model=sg13_lv_nmos
+spiceprefix=X
+}

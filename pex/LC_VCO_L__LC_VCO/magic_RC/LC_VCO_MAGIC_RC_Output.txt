@@ -16,37 +16,39 @@ Warning: Calma reading is not undoable!  I hope that's OK.
 Library written using GDS-II Release 6.0
 Library name: LIB
 Reading "$$$CONTEXT_INFO$$$".
-Reading "GenericVia$1".
-Reading "GenericVia".
-Reading "GenericVia$2".
-Reading "GenericVia$3".
-Reading "GenericVia$4".
 Reading "GenericVia$5".
-Reading "rhigh".
-Reading "nmos$5".
+Reading "GenericVia$4".
+Reading "GenericVia$3".
+Reading "GenericVia$2".
+Reading "GenericVia".
+Reading "GenericVia$1".
 Reading "IHP_4nH_Inductor".
+Reading "rhigh".
 Reading "nmos".
-Reading "pmos$2".
-Reading "nmos$4".
-Reading "pmos$3".
+Reading "nmos$1".
+Reading "pmos$1".
 Reading "cmim".
+Reading "nmos$2".
+Reading "pmos$2".
 Reading "LC_VCO".
-Error while reading cell "LC_VCO" (byte position 152772): Warning: cell "pmos$2" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "LC_VCO" (byte position 141632): Warning: cell "pmos$1" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "LC_VCO" (byte position 141728): Warning: cell "pmos$1" placed on top of itself.  Ignoring the extra one.
+CIF file read warning: CIF style sg13g2(): units rescaled by factor of 5 / 1
 Extracting LC_VCO into /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/pex/LC_VCO_L__LC_VCO/magic_RC/LC_VCO.ext:
 LC_VCO: 44 warnings
 Total of 44 warnings.
-Port: name = IBIAS is new node 0x5d48cb530870
-Location is (-16988, -15075); drivepoint (-16988, -15075)
-Port: name = OUTp is new node 0x5d48cb5307e0
-Location is (420, -11624); drivepoint (420, -11624)
-Port: name = OUTn is new node 0x5d48cb7acbb0
-Location is (404, -14804); drivepoint (404, -14804)
-Port: name = VCTRL is new node 0x5d48cb530900
-Location is (-17954, -19980); drivepoint (-17954, -19980)
-Port: name = GND is new node 0x5d48ca0e6650
-Location is (-17937, -16011); drivepoint (-17937, -16011)
-Port: name = VDD is new node 0x5d48cb174390
-Location is (-17896, -9292); drivepoint (-17896, -9292)
+Port: name = IBIAS is new node 0x5788c3959460
+Location is (-11108, -7317); drivepoint (-11108, -7317)
+Port: name = GND is new node 0x5788c3959910
+Location is (-11874, -14424); drivepoint (-11874, -14424)
+Port: name = VCTRL is new node 0x5788c3959880
+Location is (-9069, -3988); drivepoint (-9069, -3988)
+Port: name = VDD is new node 0x5788c3bb99b0
+Location is (-9188, -1944); drivepoint (-9188, -1944)
+Port: name = OUTn is new node 0x5788c3bbd300
+Location is (975, -12806); drivepoint (975, -12806)
+Port: name = OUTp is new node 0x5788c38495c0
+Location is (894, -8227); drivepoint (894, -8227)
 Total Nets: 6
 Nets extracted: 6 (1.000000)
 Nets output: 6 (1.000000)

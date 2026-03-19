@@ -1,0 +1,75 @@
+
+Magic 8.3 revision 530 - Compiled on Tue Jul 29 09:46:08 AM CEST 2025.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology ihp-sg13g2 ...
+2 Magic internal units = 1 Lambda
+Input style sg13g2(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    fillfet sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pad seal thruvia 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading "pex/dsm_and_freq_divider__dsm_and_freq_divider/magic_RC/dsm_and_freq_divider_MAGIC_RC_Script.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 3.0
+Library name: dsm_and_freq_divider
+Reading "sg13g2_decap_8".
+Reading "sg13g2_fill_1".
+Reading "sg13g2_decap_4".
+Reading "sg13g2_dfrbpq_1".
+Reading "sg13g2_xnor2_1".
+Reading "sg13g2_xor2_1".
+Reading "sg13g2_nor2_1".
+Reading "sg13g2_a21o_2".
+Reading "sg13g2_inv_1".
+Reading "sg13g2_a21oi_1".
+CIF file read warning: CIF style sg13g2(): units rescaled by factor of 5 / 1
+Reading "sg13g2_fill_2".
+Reading "sg13g2_mux2_1".
+Reading "sg13g2_and2_1".
+Reading "sg13g2_buf_1".
+Reading "sg13g2_nand2b_1".
+Reading "sg13g2_buf_16".
+Reading "sg13g2_nand2_1".
+Reading "sg13g2_nor2b_1".
+Reading "sg13g2_nand3_1".
+Reading "sg13g2_a21oi_2".
+Reading "sg13g2_a21o_1".
+Reading "sg13g2_and3_1".
+Reading "sg13g2_o21ai_1".
+Reading "sg13g2_nor3_1".
+Reading "sg13g2_a221oi_1".
+Reading "dsm_and_freq_divider".
+Extracting dsm_and_freq_divider into /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/pex/dsm_and_freq_divider__dsm_and_freq_divider/magic_RC/dsm_and_freq_divider.ext:
+dsm_and_freq_divider: 1034 warnings
+Total of 1034 warnings.
+Port: name = VGND is new node 0x57e043a04a10
+Location is (1152, 6764); drivepoint (1152, 6764)
+Port: name = VGND exists, forcing drivepoint
+Location is (1152, 6764); drivepoint (4892, 2898)
+Port: name = VPWR is new node 0x57e043a04c60
+Location is (1152, 5524); drivepoint (1152, 5524)
+Port: name = VPWR exists, forcing drivepoint
+Location is (1152, 5524); drivepoint (3652, 2980)
+Port: name = en is new node 0x57e043a04bd0
+Location is (0, 11636); drivepoint (0, 11636)
+Port: name = freq_in is new node 0x57e04335cce0
+Location is (9464, 22008); drivepoint (9464, 22008)
+Port: name = freq_out is new node 0x57e043396800
+Location is (18264, 4580); drivepoint (18264, 4580)
+Port: name = rst is new node 0x57e043a048e0
+Location is (0, 17348); drivepoint (0, 17348)
+Port: name = sclk is new node 0x57e04335a550
+Location is (0, 11468); drivepoint (0, 11468)
+Port: name = sdata is new node 0x57e04335b010
+Location is (0, 7436); drivepoint (0, 7436)
+Couldn't find wire at 3652 2980
+Error in extracting node VPWR
+Couldn't find wire at 4892 2898
+Error in extracting node VGND
+Total Nets: 8
+Nets extracted: 8 (1.000000)
+Nets output: 6 (0.750000)
+exttospice finished.

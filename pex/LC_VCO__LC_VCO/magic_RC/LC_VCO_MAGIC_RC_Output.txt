@@ -22,34 +22,35 @@ Reading "GenericVia$3".
 Reading "GenericVia$2".
 Reading "GenericVia".
 Reading "GenericVia$1".
-Reading "cmim".
-Reading "pmos$3".
-Reading "nmos$4".
-Reading "pmos$2".
-Reading "nmos".
 Reading "IHP_4nH_Inductor".
 CIF file read warning: CIF style sg13g2(): units rescaled by factor of 5 / 1
 CIF file read warning: Input off lambda grid by 1/5; snapped to grid.
-Reading "nmos$5".
 Reading "rhigh".
+Reading "nmos".
+Reading "nmos$1".
+Reading "pmos$1".
+Reading "cmim".
+Reading "nmos$2".
+Reading "pmos$2".
 Reading "LC_VCO".
-Error while reading cell "LC_VCO" (byte position 154948): Warning: cell "pmos$2" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "LC_VCO" (byte position 143296): Warning: cell "pmos$1" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "LC_VCO" (byte position 143392): Warning: cell "pmos$1" placed on top of itself.  Ignoring the extra one.
 Extracting LC_VCO into /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/pex/LC_VCO__LC_VCO/magic_RC/LC_VCO.ext:
-Warning:  Ports "OUTn" and "OUTp" are electrically shorted.
+Warning:  Ports "OUTp" and "OUTn" are electrically shorted.
 LC_VCO: 45 warnings
 Total of 45 warnings.
-Port: name = IBIAS is new node 0x5d9a01415fd0
-Location is (-16988, -15075); drivepoint (-16988, -15075)
-Port: name = OUTp is new node 0x5d9a0140cd60
-Location is (420, -11624); drivepoint (420, -11624)
-Port: name = OUTn is new node 0x5d9a0140cc80
-Location is (404, -14804); drivepoint (404, -14804)
-Port: name = VCTRL is new node 0x5d9a01301b00
-Location is (-17954, -19980); drivepoint (-17954, -19980)
-Port: name = GND is new node 0x5d9a0154ca20
-Location is (-17937, -16011); drivepoint (-17937, -16011)
-Port: name = VDD is new node 0x5d9a011b09b0
-Location is (-17896, -9292); drivepoint (-17896, -9292)
+Port: name = IBIAS is new node 0x5fe5161c0800
+Location is (-11108, -7317); drivepoint (-11108, -7317)
+Port: name = GND is new node 0x5fe5161c6100
+Location is (-11874, -14424); drivepoint (-11874, -14424)
+Port: name = VCTRL is new node 0x5fe5161bcdb0
+Location is (-9069, -3988); drivepoint (-9069, -3988)
+Port: name = VDD is new node 0x5fe5161bcc80
+Location is (-9188, -1944); drivepoint (-9188, -1944)
+Port: name = OUTn is new node 0x5fe5160a5630
+Location is (975, -12806); drivepoint (975, -12806)
+Port: name = OUTp is new node 0x5fe5161c24f0
+Location is (894, -8227); drivepoint (894, -8227)
 Total Nets: 6
 Nets extracted: 6 (1.000000)
 Nets output: 6 (1.000000)

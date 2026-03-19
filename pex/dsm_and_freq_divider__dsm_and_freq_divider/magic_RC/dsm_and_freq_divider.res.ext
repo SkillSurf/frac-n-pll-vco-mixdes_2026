@@ -1,0 +1,39 @@
+scale 1000 1 0.5
+rnode "sdata.n0" 0 0 1273 8112 0
+rnode "sdata" 0 0 0 7436 0
+rnode "sdata.n1" 0 0 1248 7980 0
+rnode "input3.A" 0 0 1209 7946 0
+resist "input3.A" "sdata.n1" 0.065
+resist "sdata.n1" "sdata.n0" 15.0117
+resist "sdata.n1" "sdata" 21.7634
+rnode "sclk" 0 0 0 11468 0
+rnode "sclk.n0" 0 0 3925 10921 0
+rnode "sclk.n1" 0 0 3925 10921 0
+rnode "clkbuf_0_sclk.A" 0 0 3856 10888 0
+resist "clkbuf_0_sclk.A" "sclk.n1" 0.127646
+resist "sclk.n1" "sclk.n0" 5.05088
+resist "sclk.n1" "sclk" 45.8624
+rnode "rst.n0" 0 0 1273 17937 0
+rnode "rst" 0 0 0 17348 0
+rnode "rst.n1" 0 0 1248 17724 0
+rnode "input2.A" 0 0 1209 17692 0
+resist "input2.A" "rst.n1" 0.065
+resist "rst.n1" "rst.n0" 15.0117
+resist "rst.n1" "rst" 21.3938
+rnode "freq_out" 0 0 18264 4580 0
+rnode "output4.X" 0 0 17063 4950 0
+resist "output4.X" "freq_out" 21.3706
+rnode "freq_in.n0" 0 0 11024 17935 0
+rnode "freq_in" 0 0 9464 22008 0
+rnode "freq_in.n1" 0 0 11040 17808 0
+rnode "_267_.CLK" 0 0 10986 17776 0
+resist "_267_.CLK" "freq_in.n1" 0.0928125
+resist "freq_in.n1" "freq_in.n0" 15.0017
+resist "freq_in.n1" "freq_in" 39.6571
+rnode "en.n0" 0 0 1273 11889 0
+rnode "en" 0 0 0 11636 0
+rnode "en.n1" 0 0 1248 11676 0
+rnode "input1.A" 0 0 1209 11644 0
+resist "input1.A" "en.n1" 0.065
+resist "en.n1" "en.n0" 15.0117
+resist "en.n1" "en" 20.6576

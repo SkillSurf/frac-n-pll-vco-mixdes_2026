@@ -1,34 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <report-database>
- <description>design rules: sg13g2_maximal | layout cell: LC_VCO</description>
- <original-file>/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/layout/LC_VCO.gds</original-file>
+ <description>design rules: sg13g2_maximal | layout cell: top_pll</description>
+ <original-file>/foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/layout/pll.gds</original-file>
  <generator>drc: script='/foss/pdks/ihp-sg13g2/libs.tech/klayout/tech/drc/sg13g2_maximal.lydrc'</generator>
- <top-cell>LC_VCO</top-cell>
+ <top-cell>top_pll</top-cell>
  <tags>
-  <tag>
-   <name>waived</name>
-   <description/>
-  </tag>
-  <tag>
-   <name>red</name>
-   <description/>
-  </tag>
-  <tag>
-   <name>green</name>
-   <description/>
-  </tag>
-  <tag>
-   <name>blue</name>
-   <description/>
-  </tag>
-  <tag>
-   <name>yellow</name>
-   <description/>
-  </tag>
-  <tag>
-   <name>important</name>
-   <description/>
-  </tag>
  </tags>
  <categories>
   <category>
@@ -2980,10 +2956,32 @@
  </categories>
  <cells>
   <cell>
-   <name>LC_VCO</name>
+   <name>top_pll</name>
    <variant/>
    <layout-name/>
    <references>
+   </references>
+  </cell>
+  <cell>
+   <name>LC_VCO</name>
+   <variant/>
+   <layout-name>LC_VCO</layout-name>
+   <references>
+    <ref>
+     <parent>top_pll</parent>
+     <trans>r0 *1 0,0</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>via_stack</name>
+   <variant/>
+   <layout-name>via_stack</layout-name>
+   <references>
+    <ref>
+     <parent>top_pll</parent>
+     <trans>r0 *1 -53.72,16.035</trans>
+    </ref>
    </references>
   </cell>
   <cell>
@@ -2992,7 +2990,7 @@
    <layout-name>IHP_4nH_Inductor</layout-name>
    <references>
     <ref>
-     <parent>LC_VCO</parent>
+     <parent>top_pll</parent>
      <trans>r270 *1 282.81,-50.5</trans>
     </ref>
    </references>
@@ -3002,253 +3000,193 @@
   <item>
    <tags/>
    <category>'AFil.g/g1'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'AFil.g2/g3'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'GFil.g'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
-   <category>'M1.c1'</category>
+   <category>'GFil.i'</category>
    <cell>LC_VCO</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-84.895,-77.365;-84.895,-77.205;-84.735,-77.205;-84.735,-77.365)</value>
+    <value>polygon: (146.2,-314.915;14.7,-183.415;14.7,79.585;146.2,211.085;409.2,211.085;540.7,79.585;540.7,-183.415;409.2,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M1.j/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M2.d'</category>
+   <cell>via_stack</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.145,-0.145;-0.145,0.145;0.145,0.145;0.145,-0.145)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M2.j/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M3.j/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M4.j/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M5.j/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M1Fil.h/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M2Fil.h/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M3Fil.h/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M4Fil.h/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'M5Fil.h/k'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
    <tags/>
    <category>'TM1.c/d'</category>
-   <cell>LC_VCO</cell>
+   <cell>top_pll</cell>
    <visited>false</visited>
    <multiplicity>1</multiplicity>
    <comment/>
    <image/>
    <values>
-    <value>polygon: (-91.61,-284.919;-91.61,181.081;510.737,181.081;510.737,-284.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'LU.d'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (-85.045,-96.895;-85.045,-96.245;5.485,-96.245;5.485,-96.895)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'LU.d'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (-85.675,-84.07;-85.675,-83.43;4.435,-83.43;4.435,-84.07)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'LU.d'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (-78.865,-61.675;-78.865,-61.035;-63.45,-61.035;-63.45,-61.675)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'LU.d'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (-78.84,-48.955;-78.84,-48.265;-63.425,-48.265;-63.425,-48.955)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'LU.d1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (-81.175,-78.645;-81.175,-77.995;-57.21,-77.995;-57.21,-78.645)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'LU.d1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>polygon: (-74.61,-68.81;-74.61,-68.775;-81.15,-68.775;-81.15,-68.2;-74.61,-68.2;-74.61,-68.17;-57.195,-68.17;-57.195,-68.81)</value>
+    <value>polygon: (-130.005,-314.915;-130.005,211.085;540.7,211.085;540.7,-314.915)</value>
    </values>
   </item>
   <item>
@@ -3345,510 +3283,6 @@
    <image/>
    <values>
     <value>polygon: (190.419,30.785;37.277,183.927;79.707,183.927;190.419,73.215)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (16.3,-26.919;16.3,-26.919)/(16.3,-26.919;16.3,-26.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (14.737,-26.919;14.737,-26.919)/(14.737,-26.919;14.737,-26.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (14.737,3.081;14.737,3.081)/(14.737,3.081;14.737,3.081)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.737,3.081;44.737,3.081)/(44.737,3.081;44.737,3.081)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.737,-26.919;44.737,-26.919)/(44.737,-26.919;44.737,-26.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (29.185,-26.919;29.185,-26.919)/(29.185,-26.919;29.185,-26.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (14.737,-106.919;14.737,-106.919)/(14.737,-106.919;14.737,-106.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (14.737,-76.919;14.737,-76.919)/(14.737,-76.919;14.737,-76.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (16.85,-76.919;16.85,-76.919)/(16.85,-76.919;16.85,-76.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (29.33,-76.919;29.33,-76.919)/(29.33,-76.919;29.33,-76.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.737,-76.919;44.737,-76.919)/(44.737,-76.919;44.737,-76.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal2'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.737,-106.919;44.737,-106.919)/(44.737,-106.919;44.737,-106.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-53.581,-268.073;-53.581,-268.073)/(-53.581,-268.073;-53.581,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-53.581,-238.073;-53.581,-238.073)/(-53.581,-238.073;-53.581,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-23.581,-238.073;-23.581,-238.073)/(-23.581,-238.073;-23.581,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-23.581,-268.073;-23.581,-268.073)/(-23.581,-268.073;-23.581,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (26.419,-268.073;26.419,-268.073)/(26.419,-268.073;26.419,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (26.419,-238.073;26.419,-238.073)/(26.419,-238.073;26.419,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (56.419,-238.073;56.419,-238.073)/(56.419,-238.073;56.419,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal3'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (56.419,-268.073;56.419,-268.073)/(56.419,-268.073;56.419,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-53.581,-268.073;-53.581,-268.073)/(-53.581,-268.073;-53.581,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-53.581,-238.073;-53.581,-238.073)/(-53.581,-238.073;-53.581,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-23.581,-238.073;-23.581,-238.073)/(-23.581,-238.073;-23.581,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-23.581,-268.073;-23.581,-268.073)/(-23.581,-268.073;-23.581,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (26.419,-268.073;26.419,-268.073)/(26.419,-268.073;26.419,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (26.419,-238.073;26.419,-238.073)/(26.419,-238.073;26.419,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (56.419,-238.073;56.419,-238.073)/(56.419,-238.073;56.419,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal4'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (56.419,-268.073;56.419,-268.073)/(56.419,-268.073;56.419,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (26.419,-268.073;26.419,-268.073)/(26.419,-268.073;26.419,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (26.419,-238.073;26.419,-238.073)/(26.419,-238.073;26.419,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (56.419,-238.073;56.419,-238.073)/(56.419,-238.073;56.419,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (56.419,-268.073;56.419,-268.073)/(56.419,-268.073;56.419,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-53.581,-268.073;-53.581,-268.073)/(-53.581,-268.073;-53.581,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-53.581,-238.073;-53.581,-238.073)/(-53.581,-238.073;-53.581,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-23.581,-238.073;-23.581,-238.073)/(-23.581,-238.073;-23.581,-238.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.Metal5'</category>
-   <cell>IHP_4nH_Inductor</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (-23.581,-268.073;-23.581,-268.073)/(-23.581,-268.073;-23.581,-268.073)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.TopMetal1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (14.737,-26.919;14.737,-26.919)/(14.737,-26.919;14.737,-26.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.TopMetal1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (14.737,2.81;14.737,2.81)/(14.737,2.81;14.737,2.81)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.TopMetal1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.62,-26.919;44.62,-26.919)/(44.62,-26.919;44.62,-26.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.TopMetal1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (15,-76.919;15,-76.919)/(15,-76.919;15,-76.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.TopMetal1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.737,-76.919;44.737,-76.919)/(44.737,-76.919;44.737,-76.919)</value>
-   </values>
-  </item>
-  <item>
-   <tags/>
-   <category>'OffGrid.TopMetal1'</category>
-   <cell>LC_VCO</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment/>
-   <image/>
-   <values>
-    <value>edge-pair: (44.737,-106.67;44.737,-106.67)/(44.737,-106.67;44.737,-106.67)</value>
    </values>
   </item>
   <item>
