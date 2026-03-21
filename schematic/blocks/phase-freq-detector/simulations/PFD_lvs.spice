@@ -1,6 +1,6 @@
 ** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/phase-freq-detector/PFD_std.sch
 .include "/foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/cdl/sg13g2_stdcell.cdl"
-.SUBCKT PFD_STD VDD UP F_REF F_VCO DN GND
+.SUBCKT PFD VDD UP F_REF F_VCO DN GND
 
 x1 net1 net2 F_REF VDD RST_N VDD GND SG13G2_DFRBP_2
 x2 DN   net3 F_VCO VDD RST_N VDD GND SG13G2_DFRBP_2

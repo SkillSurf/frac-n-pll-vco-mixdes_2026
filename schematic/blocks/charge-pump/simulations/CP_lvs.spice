@@ -1,5 +1,5 @@
 ** sch_path: /foss/designs/iic_osic_tools/frac-n-pll-vco-unic_cass/schematic/blocks/charge-pump/CP_lvs.sch
-.SUBCKT CP_lvs CTRL UP VDD Ibias DN GND
+.SUBCKT CP CTRL UP VDD Ibias DN GND
 *.PININFO CTRL:O UP:I VDD:I Ibias:I DN:I GND:I
 
 M2 Vbn Vbn net2 GND sg13_lv_nmos w=3u l=2u ng=1 m=1

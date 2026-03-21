@@ -5,18 +5,18 @@
 * ---- Standard Cell Library ----
 
 .include "/foss/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/cdl/sg13g2_stdcell.cdl"
-
 * =========================================================
+
 * TOP CELL
 * =========================================================
-.SUBCKT top_pll GND VDD CLK_IN IbiasVCO Ibias OUTn CLK_OUT sdata en sclk rst
+.SUBCKT LC_VCO_PLL GND VDD CLK_IN IbiasVCO Ibias OUTn CLK_OUT sdata en sclk rst
 
 
 * Charge Pump
 x1 VDD UP VCTRL DN GND Ibias CP
 
 * PFD
-x2 VDD UP CLK_IN DSM_OUT DN GND PFD_std
+x2 VDD UP CLK_IN DSM_OUT DN GND PFD
 
 * LC VCO
 x3 VDD CLK_OUT OUTn IbiasVCO VCTRL GND LC_VCO
@@ -50,7 +50,7 @@ M5 CTRL1 Vbn net3 GND sg13_lv_nmos w=3u l=2u
 * =========================================================
 * PFD
 * =========================================================
-.SUBCKT PFD_std VDD UP F_REF F_VCO DN GND
+.SUBCKT PFD VDD UP F_REF F_VCO DN GND
 *.PININFO UP:O F_REF:I VDD:I GND:I DN:O F_VCO:I
 x1 net1 net2 F_REF VDD RST_N VDD GND sg13g2_dfrbp_2
 x2 DN   net3 F_VCO VDD RST_N VDD GND sg13g2_dfrbp_2
